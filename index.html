@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Loti:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -34,7 +35,6 @@
                 <p class="text-sm md:text-base">(12345)67890</p>
             </div>  
         </div>
-        
         <!-- main navigation -->
         <nav class="flex justify-between items-center px-24 py-6">
             <a href="" class="text-3xl font-bold text-violet-500">Nexio</a>
@@ -45,7 +45,6 @@
                 <li><a href="pages/about-us.html" class="hover:underline">About us</a></li>
                 <li><a href="pages/contact-us.html" class="hover:underline">Contact</a></li>
             </ul>
-
             <!-- cart icon and burger btn -->
             <div class=" flex gap-7">
                 <button id="cart-toggle" class="text-black focus:outline-none">
@@ -56,7 +55,6 @@
                 </button>
             </div>
         </nav>
-
         <!-- mobile menu  -->
         <div id="mobile-menu" class="lg:hidden bg-[#8b5cf6ad] text-white p-4 h-screen flex justify-center items-center hidden absolute w-full">
             <ul class="flex flex-col gap-8 text-2xl text-center ">
@@ -66,7 +64,6 @@
                 <li><a href="pages/contact-us.html">Contact</a></li>
             </ul>
         </div>
-
         <!-- cart menu -->
         <div id="cart-menu" class="fixed top-0 right-0 bg-white w-80 h-full z-50 transform translate-x-full transition-transform duration-300">
             <div class="p-6">
@@ -74,7 +71,6 @@
                 <button id="cart-close" class="absolute top-4 right-4 text-2xl text-gray-600">
                     <i class="fa-solid fa-times"></i>
                 </button>
-                
                 <h2 class="text-2xl font-bold text-gray-800 mb-4">Your Cart</h2>
                 <ul class="space-y-4">
                     <li class="flex justify-between text-sm text-gray-600">
@@ -97,47 +93,83 @@
             </div>
         </div>
     </header>
-
-
     <!-- Debut de Mon Code  -->
   <!-- Section Header -->
-  <section class="flex flex-col md:flex-row justify-center bg-[#F6F5FF] h-auto md:h-[80vh] mb-4 p-4 md:gap-[250px]">
-    <div class="mt-8 md: md:mt-[150px] w-full md:w-80 flex flex-col gap-4 text-center md:text-left">
-        <!-- Texte du header -->
-        <p class="text-[#FB2E86] text-xs ">Best Electronic Shop you will See...</p>
-        <h1 class="font-josefin text-2xl md:text-3xl font-bold">
-            Discover Our new high quality Products
-        </h1>
-        <p class="text-[#8A8FB9] font-Loti text-sm md:text-base">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing
-            in phasellus non in justo.
-        </p>
-        <div class="flex justify-center md:justify-start">
-            <button class="p-2 bg-[#FB2E86] text-white">Shop Now</button>
+  <div class="container flex bg-[#F6F5FF] gap-[400px]">
+    <section class="carousel w-screen flex flex-col md:flex-row justify-center h-auto md:h-[80vh] mb-4 p-4 md:gap-[250px]">
+      <!-- Contenu de la première section -->
+      <div class="mt-8 md:mt-[150px] w-full md:w-80 flex flex-col gap-4 text-center md:text-left">
+          <!-- Texte du header -->
+          <div>
+            <p class="text-[#FB2E86] text-xs">Best Electronic Shop you will See...</p>
+            <h1 class="font-josefin text-2xl md:text-3xl font-bold">Discover Our new high quality Products</h1>
+            <p class="text-[#8A8FB9] font-Loti text-sm md:text-base">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.
+            </p>
+            <div class="flex justify-center md:justify-start">
+              <button id="shopNowButton" class="p-2 bg-[#FB2E86] text-white">Shop Now</button>
+            </div>
+          </div>
         </div>
-    </div>
-    <!-- ******************************** -->
-    <div class=" flex justify-center w-full md:w-[500px] h-[300px] md:h-[500px] bg-[url('img/home/nexio.png')] bg-cover bg-center mt-8 md:mt-0">
-        <!-- Image de l'article -->
-        <img src="img/home/pc.png" alt="pc" class=" w-1/2  md:w-auto mx-auto ">
-    </div>
-</section>
-
+        <div class="flex justify-center w-full md:w-[500px] h-[300px] md:h-[500px] bg-[url('img/home/nexio.png')] bg-cover bg-center mt-8 md:mt-0">
+          <img src="../img/home/pc.png" alt="pc" class="w-1/2 md:w-auto mx-auto">
+        </div>
+    </section>
+    
+    <section class="carousel w-screen flex flex-col md:flex-row justify-center h-auto md:h-[80vh] mb-4 p-4 md:gap-[250px]">
+      <!-- Contenu de la deuxième section -->
+      <div class="mt-8 md:mt-[150px] w-full md:w-80 flex flex-col gap-4 text-center md:text-left">
+          <!-- Texte du header -->
+          <div>
+            <p class="text-[#FB2E86] text-xs">Best Electronic Shop you will See...</p>
+            <h1 class="font-josefin text-2xl md:text-3xl font-bold">Discover Our new high quality Products</h1>
+            <p class="text-[#8A8FB9] font-Loti text-sm md:text-base">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.
+            </p>
+            <div class="flex justify-center md:justify-start">
+              <button id="shopNowButton" class="p-2 bg-[#FB2E86] text-white">Shop Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center w-full md:w-[500px] h-[300px] md:h-[500px] bg-[url('img/home/nexio.png')] bg-cover bg-center mt-8 md:mt-0">
+          <img src="img/home/open-laptop.png" alt="pc" class="w-1/2 md:w-auto mx-auto">
+        </div>
+    </section>
+    
+    <section class="carousel w-screen flex flex-col md:flex-row justify-center h-auto md:h-[80vh] mb-4 p-4 md:gap-[250px]">
+      <!-- Contenu de la troisième section -->
+      <div class="mt-8 md:mt-[150px] w-full md:w-80 flex flex-col gap-4 text-center md:text-left">
+          <!-- Texte du header -->
+          <div>
+            <p class="text-[#FB2E86] text-xs">Best Electronic Shop you will See...</p>
+            <h1 class="font-josefin text-2xl md:text-3xl font-bold">Discover Our new high quality Products</h1>
+            <p class="text-[#8A8FB9] font-Loti text-sm md:text-base">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.
+            </p>
+            <div class="flex justify-center md:justify-start">
+              <button id="shopNowButton" class="p-2 bg-[#FB2E86] text-white">Shop Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center w-full md:w-[500px] h-[300px] md:h-[500px] bg-[url('img/home/nexio.png')] bg-cover bg-center mt-8 md:mt-0">
+          <img src="../img/home/machine.png" alt="pc" class="w-1/2 md:w-auto mx-auto">
+        </div>
+    </section>
+  </div>
 <!-- section categure -->
-
 <section>
     <div class="flex justify-center mt-6 mb-6">
         <!-- <h1 class="text-[#1A0B5B] font-josefin font-semibold text-xl md:text-2xl">Our categories</h1> -->
         <h2 class="text-center mb-16 font-bold text-4xl text-[#151875]">Our categories</h2>
     </div>
-    <div class="flex flex-col md:flex-row gap-4 md:gap-[10px] mx-4">
-        <div class="hidden md:block w-full md:w-[714px] h-[684px]">
+    <div class="flex flex-col justify-center  md:flex-row gap-4 md:gap-[10px] mx-4">
+        <div class="hidden md:block w-full md:w-[514px] h-[584px]">
             <img src="img/home/grpImage.png" alt="grpImage" class="w-full h-full object-cover">
         </div>
         <div class="w-full md:w-[714px] h-full bg-[#8b5f6ad] p-4">
             <div class="flex items-center gap-4">
                 <img src="img/home/iconHome.png" alt="icon" class="w-6 md:w-8">
-                <h5 class="text-[#151875] font-Loti text-lg md:text-xl">The Best Collections</h5>
+                <h5 class="text-[#151875] font-Loti text-lg  md:text-xl ">The Best Collections</h5>
             </div>
             <p class="text-[#1A0B5B] font-josefin text-sm md:text-base mt-4">
                 It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable<br>
@@ -164,12 +196,9 @@
         </div>
     </div>
 </section>
-
-
 <!-- Section Leatest Products -->
  <section  class="mt-10">
     <div class="flex justify-center  mb-8">
-
         <h2 class="text-center mb-16 font-bold text-4xl text-[#151875]">Leatest Products</h2>
     </div>
     <div class="flex justify-center">
@@ -178,61 +207,47 @@
             <img src="img/home/phone.png" alt="phone" >
             <div class="flex justify-between">
                 <p>Google Pixel Smart Phone</p>
-                <p>250.00$</p>
-
+                <div class="flex gap-2"> <p>250.00$</p> <p class="text-red-500 line-through">65.00</p> </div>  
             </div>
           </div>
-
           <div>
             <img src="img/home/dell.png" alt="phone" >
             <div class="flex justify-between">
                 <p>Google Pixel Smart Phone</p>
-                <p>250.00$</p>
-
+               <div class="flex gap-2"> <p>250.00$</p> <p class="text-red-500 line-through">65.00</p> </div>
             </div>
           </div>
           <div>
             <img src="img/home/serveur.png" alt="phone" >
             <div class="flex justify-between">
                 <p>Google Pixel Smart Phone</p>
-                <p>250.00$</p>
-
+               <div class="flex gap-2"> <p>250.00$</p> <p class="text-red-500 line-through">65.00</p> </div>
             </div>
           </div>
-
           <div>
             <img src="img/home/souris.png" alt="phone" >
             <div class="flex justify-between">
                 <p>Google Pixel Smart Phone</p>
-                <p>250.00$</p>
-
+               <div class="flex gap-2"> <p>250.00$</p> <p class="text-red-500 line-through">65.00</p> </div>
             </div>
           </div>
           <div>
             <img src="img/home/clavier.png" alt="phone" >
             <div class="flex justify-between">
                 <p>Google Pixel Smart Phone</p>
-                <p>250.00$</p>
-
+               <div class="flex gap-2"> <p>250.00$</p> <p class="text-red-500 line-through">65.00</p> </div>
             </div>
           </div>
           <div>
             <img src="img/home/machine.png" alt="phone" >
             <div class="flex justify-between">
                 <p>Google Pixel Smart Phone</p>
-                <p>250.00$</p>
-
+               <div class="flex gap-2"> <p>250.00$</p> <p class="text-red-500 line-through">65.00</p> </div>
             </div>
           </div>
-
-          
         </div>
-
     </div>
  </section>
-
-
-
  <!-- section what we offre -->
   <section class="mt-[50px] mb-4">
     <div class="flex justify-center mb-6 ">
@@ -240,48 +255,32 @@
     </div>
     <div class=" flex justify-center">
                 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
-                        <div class=" flex flex-col  items-center  shadow-md w-[200px]">
+                        <div class=" flex flex-col  items-center  shadow-md w-[200px] p-2">
                             <img src="img/home/transport.svg" alt="transpoort" >
                             <h3>24/7 Support</h3>
                             <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.</p>
                         </div>
-
-                        <div class=" flex flex-col items-center  shadow-md w-[200px]">
+                        <div class=" flex flex-col items-center  shadow-md w-[200px]  p-2">
                             <img src="img/home/argent.svg" alt="transpoort" >
                             <h3>24/7 Support</h3>
                             <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.</p>
                         </div>
-
-                        <div class=" flex flex-col items-center  shadow-md w-[200px]">
+                        <div class=" flex flex-col items-center  shadow-md w-[200px]  p-2">
                             <img src="img/home/premium-quality 1.svg" alt="transpoort" >
                             <h3>24/7 Support</h3>
                             <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.</p>
                         </div>
-
-                        <div class=" flex flex-col items-center  shadow-md w-[200px]">
+                        <div class=" flex flex-col items-center  shadow-md w-[200px] p-2">
                             <img src="img/home/24-hours-support 1.svg" alt="transpoort" >
                             <h3>24/7 Support</h3>
                             <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.</p>
-                        </div>
-
-                        
+                        </div>     
                 </div>
 </div>
   </section>
-
-
-
-
-
 <!-- Fin de mon code -->
-
-
-
-
-
-
     <!-- footer -->
-    <footer>
+    <footer class="mt-10">
         <div class="bg-[#EEEFFB] grid grid-cols-1 md:grid-cols-4 px-9 py-16 gap-9 justify-items-center">
             <div class="space-y-6">
                 <h3 class="text-[#151875] text-3xl">Nexio</h3>
@@ -326,6 +325,35 @@
             </div>
         </div>
     </footer>
+    <script>
+        // Sélectionner toutes les sections de carousel
+        const sections = document.querySelectorAll(".carousel");
+      
+        // Masquer toutes les sections sauf la première
+        sections.forEach((section, index) => {
+          gsap.set(section, { opacity: index === 0 ? 1 : 0, display: index === 0 ? 'flex' : 'none' });
+        });
+      
+        // Animation en boucle entre les sections
+        let currentSection = 0;
+      
+        function showNextSection() {
+          const nextSection = (currentSection + 1) % sections.length;
+      
+          // Masquer la section actuelle
+          gsap.to(sections[currentSection], { opacity: 0, duration: 1, display: 'none' });
+      
+          // Afficher la section suivante
+          gsap.to(sections[nextSection], { opacity: 1, duration: 1, display: 'flex' });
+      
+          // Mise à jour de la section actuelle
+          currentSection = nextSection;
+        }
+      
+        // Démarrer l'animation avec un intervalle de 3 secondes
+        setInterval(showNextSection, 3000);
+      </script>
+      
     <script src="/js/main.js"></script>
 </body>
 </html>
