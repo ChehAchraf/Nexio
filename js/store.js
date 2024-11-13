@@ -71,7 +71,7 @@ function addToCart(productName, productPrice, productImage) {
 function displayCart() {
     const cartMenu = document.getElementById('cart-menu');
     const cartList = cartMenu.querySelector('ul');
-    const totalPrices = cartMenu.querySelector('#pri');
+    const totalPrices = cartMenu.querySelector('#total-prix');
 
     cartList.innerHTML = ''; 
 
@@ -87,5 +87,5 @@ function displayCart() {
         cartList.appendChild(listItem);
     });
 
-    totalPrices.textContent = `Total: $${totalPrice}.`;
+    totalPrices.textContent = `Total: $${totalPrice}`;
 }
