@@ -6,25 +6,25 @@ const cartclose = document.getElementById('cart-close');
 const bteShopNow = document.getElementById('shopNowButton');
 const carousel = document.getElementsByClassName('carousel');
 
-let currentPosition = 0;
-const scrollSpeed = 1; // Ajustez la vitesse de défilement en pixels
+    let currentPosition = 0;
+    const scrollSpeed = 1; // Ajustez la vitesse de défilement en pixels
 
-menutoggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-});
+    menutoggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
 
-carttoggle.addEventListener('click', () => {
-    cartmenu.classList.toggle('translate-x-full'); 
-});
+    carttoggle.addEventListener('click', () => {
+        cartmenu.classList.toggle('translate-x-full'); 
+    });
 
-cartclose.addEventListener('click', () => {
-    cartmenu.classList.add('translate-x-full'); 
-});
+    cartclose.addEventListener('click', () => {
+        cartmenu.classList.add('translate-x-full'); 
+    });
 
-bteShopNow.addEventListener('click',function(){
-   
-    window.location.href='../pages/store.html'
-});
+    bteShopNow.addEventListener('click',function(){
+    
+        window.location.href='../pages/store.html'
+    });
 
 
 // document.addEventListener("DOMContentLoaded", function () {

@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Loti:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -95,67 +95,47 @@
     </header>
     <!-- Debut de Mon Code  -->
   <!-- Section Header -->
-  <div class="container flex bg-[#F6F5FF] gap-[400px]">
-    <section class="carousel w-screen flex flex-col md:flex-row justify-center h-auto md:h-[80vh] mb-4 p-4 md:gap-[250px]">
-      <!-- Contenu de la première section -->
-      <div class="mt-8 md:mt-[150px] w-full md:w-80 flex flex-col gap-4 text-center md:text-left">
+  <section class="relative overflow-hidden bg-[#F2F0FF]">
+    <div id="slider-conatiner" class="flex w-full ">
+     <div class="slider w-screen flex flex-col min-w-full md:flex-row justify-center  h-auto min-w-full md:h-[80vh] mb-4 p-4 md:gap-[250px] min-w-full">
+              <div class="mt-8 md:mt-[150px] w-full md:w-80 flex flex-col gap-4 text-center ">
+                  <!-- Texte du header -->
+                  <div>
+                  <p class="text-[#FB2E86] text-xs">Best Electronic Shop you will See...</p>
+                  <h1 class="font-josefin text-2xl md:text-3xl font-bold">Discover Our new high quality Products</h1>
+                  <p class="text-[#8A8FB9] font-Loti text-sm md:text-base">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.
+                  </p>
+                  <div class="flex justify-center md:justify-start">
+                      <button id="shopNowButton" class="p-2 bg-[#FB2E86] text-white">Shop Now</button>
+                  </div>
+                  </div>
+              </div>
+              <div class="flex justify-center w-full md:w-[500px] h-[300px] md:h-[500px] bg-[url('img/home/nexio.png')] bg-cover bg-center mt-8 md:mt-0">
+                  <img src="../img/home/pc.png" alt="pc" class="w-1/2 md:w-auto mx-auto">
+              </div>
+     </div>   
+     <!-- items2 -->
+     <div class="slider w-screen flex flex-col md:flex-row justify-center  h-auto md:h-[80vh] mb-4 p-4 md:gap-[250px]">
+      <div class="mt-8 md:mt-[150px] w-full md:w-80 flex flex-col gap-4 text-center ">
           <!-- Texte du header -->
           <div>
-            <p class="text-[#FB2E86] text-xs">Best Electronic Shop you will See...</p>
-            <h1 class="font-josefin text-2xl md:text-3xl font-bold">Discover Our new high quality Products</h1>
-            <p class="text-[#8A8FB9] font-Loti text-sm md:text-base">
+          <p class="text-[#FB2E86] text-xs">Best Electronic Shop you will See...</p>
+          <h1 class="font-josefin text-2xl md:text-3xl font-bold">Discover Our new high quality Products</h1>
+          <p class="text-[#8A8FB9] font-Loti text-sm md:text-base">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.
-            </p>
-            <div class="flex justify-center md:justify-start">
+          </p>
+          <div class="flex justify-center md:justify-start">
               <button id="shopNowButton" class="p-2 bg-[#FB2E86] text-white">Shop Now</button>
-            </div>
           </div>
-        </div>
-        <div class="flex justify-center w-full md:w-[500px] h-[300px] md:h-[500px] bg-[url('img/home/nexio.png')] bg-cover bg-center mt-8 md:mt-0">
+          </div>
+      </div>
+      <div class="flex justify-center w-full md:w-[500px] h-[300px] md:h-[500px] bg-[url('img/home/nexio.png')] bg-cover bg-center mt-8 md:mt-0">
           <img src="../img/home/pc.png" alt="pc" class="w-1/2 md:w-auto mx-auto">
-        </div>
-    </section>
-    
-    <section class="carousel w-screen flex flex-col md:flex-row justify-center h-auto md:h-[80vh] mb-4 p-4 md:gap-[250px]">
-      <!-- Contenu de la deuxième section -->
-      <div class="mt-8 md:mt-[150px] w-full md:w-80 flex flex-col gap-4 text-center md:text-left">
-          <!-- Texte du header -->
-          <div>
-            <p class="text-[#FB2E86] text-xs">Best Electronic Shop you will See...</p>
-            <h1 class="font-josefin text-2xl md:text-3xl font-bold">Discover Our new high quality Products</h1>
-            <p class="text-[#8A8FB9] font-Loti text-sm md:text-base">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.
-            </p>
-            <div class="flex justify-center md:justify-start">
-              <button id="shopNowButton" class="p-2 bg-[#FB2E86] text-white">Shop Now</button>
-            </div>
-          </div>
-        </div>
-        <div class="flex justify-center w-full md:w-[500px] h-[300px] md:h-[500px] bg-[url('img/home/nexio.png')] bg-cover bg-center mt-8 md:mt-0">
-          <img src="img/home/open-laptop.png" alt="pc" class="w-1/2 md:w-auto mx-auto">
-        </div>
-    </section>
-    
-    <section class="carousel w-screen flex flex-col md:flex-row justify-center h-auto md:h-[80vh] mb-4 p-4 md:gap-[250px]">
-      <!-- Contenu de la troisième section -->
-      <div class="mt-8 md:mt-[150px] w-full md:w-80 flex flex-col gap-4 text-center md:text-left">
-          <!-- Texte du header -->
-          <div>
-            <p class="text-[#FB2E86] text-xs">Best Electronic Shop you will See...</p>
-            <h1 class="font-josefin text-2xl md:text-3xl font-bold">Discover Our new high quality Products</h1>
-            <p class="text-[#8A8FB9] font-Loti text-sm md:text-base">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.
-            </p>
-            <div class="flex justify-center md:justify-start">
-              <button id="shopNowButton" class="p-2 bg-[#FB2E86] text-white">Shop Now</button>
-            </div>
-          </div>
-        </div>
-        <div class="flex justify-center w-full md:w-[500px] h-[300px] md:h-[500px] bg-[url('img/home/nexio.png')] bg-cover bg-center mt-8 md:mt-0">
-          <img src="../img/home/machine.png" alt="pc" class="w-1/2 md:w-auto mx-auto">
-        </div>
-    </section>
-  </div>
+      </div>
+  </div>   
+    </div>
+  </section>
 <!-- section categure -->
 <section>
     <div class="flex justify-center mt-6 mb-6">
@@ -326,33 +306,42 @@
         </div>
     </footer>
     <script>
-        // Sélectionner toutes les sections de carousel
-        const sections = document.querySelectorAll(".carousel");
-      
-        // Masquer toutes les sections sauf la première
-        sections.forEach((section, index) => {
-          gsap.set(section, { opacity: index === 0 ? 1 : 0, display: index === 0 ? 'flex' : 'none' });
+        document.addEventListener('DOMContentLoaded', () => {
+      // Sélectionnez les éléments nécessaires
+      const slidesContainer = document.querySelector('#slider-conatiner');
+      const slides = document.querySelectorAll('.slider');
+    
+      // Vérifiez si slidesContainer et slides existent
+      if (!slidesContainer || slides.length === 0) {
+        console.error("Le conteneur des slides ou les slides n'ont pas été trouvés.");
+        return; // Sortir si les éléments nécessaires sont introuvables
+      }
+    
+      const slideWidth = slides[0].offsetWidth;
+      let currentIndex = 0;
+    
+      // Fonction de défilement automatique
+      function startSlider() {
+        gsap.to(slidesContainer, {
+          x: `-${slideWidth * currentIndex}px`, // Décalage de chaque slide
+          duration: 1,                          // Durée de l'animation
+          ease: 'power2.inOut',                  // Ease pour une transition fluide
+          onComplete: () => {                    // Une fois l'animation terminée
+            currentIndex++;                      // Passe à l'image suivante
+            if (currentIndex >= slides.length) { // Si fin de la liste des images
+              currentIndex = 0;                  // Reviens au début
+            }
+            setTimeout(startSlider, 3000);       // Attendre 3s avant la prochaine
+          }
         });
+      }
+    
+      // Lancer le slider pour la première fois
+      setTimeout(startSlider, 3000);
+    });
+    
       
-        // Animation en boucle entre les sections
-        let currentSection = 0;
-      
-        function showNextSection() {
-          const nextSection = (currentSection + 1) % sections.length;
-      
-          // Masquer la section actuelle
-          gsap.to(sections[currentSection], { opacity: 0, duration: 1, display: 'none' });
-      
-          // Afficher la section suivante
-          gsap.to(sections[nextSection], { opacity: 1, duration: 1, display: 'flex' });
-      
-          // Mise à jour de la section actuelle
-          currentSection = nextSection;
-        }
-      
-        // Démarrer l'animation avec un intervalle de 3 secondes
-        setInterval(showNextSection, 3000);
-      </script>
+        </script>
       
     <script src="/js/main.js"></script>
 </body>
