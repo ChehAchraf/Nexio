@@ -81,9 +81,9 @@ function displayCart() {
         listItem.classList.add('flex', 'justify-between', 'gap-5', 'text-gray-500');
         listItem.innerHTML = `
             <img src="${item.image}" class="w-11 h-11 my-[-12px] object-cover ">
-            <span>${item.name}</span>
+            <p>${item.name}</p>
             <span>${item.productCounter}</span>
-            <span>$${item.price}</span>
+            <p>$${item.price}</p>
         `;
         cartList.appendChild(listItem);
     });
