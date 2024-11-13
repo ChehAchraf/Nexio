@@ -74,11 +74,11 @@ function displayCart() {
     const cartList = cartMenu.querySelector('ul');
     const totalPrices = cartMenu.querySelector('#total-prix');
 
-    cartList.innerHTML = ''; 
+    cartList.innerHTML = '';
 
     cart.forEach(item => {
         const listItem = document.createElement('li');
-        listItem.classList.add('flex', 'justify-between', 'gap-5', 'text-gray-800', 'font-semibold');
+        listItem.classList.add('flex', 'justify-between', 'text-gray-800', 'font-semibold');
         listItem.innerHTML = `
             <img src="${item.image}" class="w-14 h-14 my-[-1em] object-cover ">
             <p>${item.name}</p>
@@ -87,6 +87,5 @@ function displayCart() {
         `;
         cartList.appendChild(listItem);
     });
-
     totalPrices.textContent = `Total: $${totalPrice}`;
 }
