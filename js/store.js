@@ -77,7 +77,7 @@ function displayCart() {
 
     cart.forEach(item => {
         const listItem = document.createElement('li');
-        listItem.classList.add('flex', 'justify-between', 'gap-5', 'text-gray-500');
+        listItem.classList.add('flex', 'justify-between', 'gap-5', 'text-gray-800', 'font-semibold');
         listItem.innerHTML = `
             <img src="${item.image}" class="w-11 h-11 my-[-12px] object-cover ">
             <p>${item.name}</p>
