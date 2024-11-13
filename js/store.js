@@ -56,7 +56,7 @@ connection.onreadystatechange = function () {
 };
 
 function addToCart(productName, productPrice, productImage) {
-    let product = cart.find(item => item.name === productName);
+    let product = cart.find(item => item.name == productName);
     if (product) {
         product.productCounter += 1;
         product.price = product.productCounter * productPrice;
