@@ -65,6 +65,7 @@ function addToCart(productName, productPrice, productImage) {
         cart.push({ name: productName, price: productPrice, productCounter: 1, image: productImage });
     }
     totalPrice += productPrice;
+
     displayCart();
 }
 
@@ -79,7 +80,7 @@ function displayCart() {
         const listItem = document.createElement('li');
         listItem.classList.add('flex', 'justify-between', 'gap-5', 'text-gray-800', 'font-semibold');
         listItem.innerHTML = `
-            <img src="${item.image}" class="w-11 h-11 my-[-12px] object-cover ">
+            <img src="${item.image}" class="w-14 h-14 my-[-1em] object-cover ">
             <p>${item.name}</p>
             <span>${item.productCounter}</span>
             <p>$${item.price}</p>
