@@ -55,6 +55,8 @@ connection.onreadystatechange = function () {
     }
 };
 
+
+
 function addToCart(productName, productPrice, productImage) {
     let product = cart.find(item => item.name == productName);
     if (product) {
@@ -66,6 +68,7 @@ function addToCart(productName, productPrice, productImage) {
     totalPrice += productPrice;
     displayCart();
 }
+
 function displayCart() {
     const cartMenu = document.getElementById('cart-menu');
     const cartList = cartMenu.querySelector('ul');
@@ -77,7 +80,7 @@ function displayCart() {
         const listItem = document.createElement('li');
         listItem.classList.add('flex', 'justify-between', 'gap-5', 'text-gray-500');
         listItem.innerHTML = `
-            <img src="${item.image}" class="w-11 h-11 my-[-12px] object-cover">
+            <img src="${item.image}" class="w-11 h-11 my-[-12px] object-cover ">
             <span>${item.name}</span>
             <span>${item.productCounter}</span>
             <span>$${item.price}</span>
