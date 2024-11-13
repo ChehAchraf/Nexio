@@ -56,7 +56,6 @@ connection.onreadystatechange = function () {
 };
 
 
-
 function addToCart(productName, productPrice, productImage) {
     let product = cart.find(item => item.name == productName);
     if (product) {
@@ -88,5 +87,5 @@ function displayCart() {
         cartList.appendChild(listItem);
     });
 
-    totalPrices.textContent = `Total: $${totalPrice}`;
+    totalPrices.textContent = `Total: $${totalPrice}.`;
 }
