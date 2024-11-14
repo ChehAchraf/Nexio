@@ -54,8 +54,6 @@ connection.onreadystatechange = function () {
         }
     }
 };
-
-
 function addToCart(productName, productPrice, productImage) {
     let product = cart.find(item => item.name == productName);
     if (product) {
@@ -68,7 +66,6 @@ function addToCart(productName, productPrice, productImage) {
 
     displayCart();
 }
-
 function displayCart() {
     const cartMenu = document
     .getElementById('cart-menu');
