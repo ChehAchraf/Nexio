@@ -70,7 +70,8 @@ function addToCart(productName, productPrice, productImage) {
 }
 
 function displayCart() {
-    const cartMenu = document.getElementById('cart-menu');
+    const cartMenu = document
+    .getElementById('cart-menu');
     const cartList = cartMenu.querySelector('ul');
     const totalPrices = cartMenu.querySelector('#total-prix');
 
