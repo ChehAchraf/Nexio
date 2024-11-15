@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexio - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Loti:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+   <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        primary: ['"Josefin Sans"', 'sans-serif'],
+                        secondary: ['"Loti"', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body class="font-primary h-full w-full ">
+    <!-- Header with Navigation -->
+    <header class="">
+        <div class="flex justify-between items-center bg-violet-500 px-4 md:py-2 md:px-24">
+            <div class="flex items-center gap-4 text-white">
+                <i class="fa-regular fa-envelope text-2xl"></i>
+                <p class="text-lg md:text-base">NexioAR@gmail.com</p>
+            </div>       
+            <div class="flex items-center gap-4 text-white">
+                <i class="fa-solid fa-phone text-lg"></i>
+                <p class="text-sm md:text-base">(12345)67890</p>
+            </div>  
+        </div>
+        
+        <!-- main navigation -->
+        <nav class="flex justify-between items-center px-4 md:px-24 py-6">
+            <a href="" class="text-3xl font-bold text-violet-500">Nexio</a>
+            <!-- menu for large screen -->
+            <ul class="hidden lg:flex gap-9 pt-1">
+                <li><a href="../index.html" class="hover:underline">Home</a></li>
+                <li><a href="store.html" class="hover:underline">Store</a></li>
+                <li><a href="about-us.html" class="hover:underline">About us</a></li>
+                <li><a href="contact-us.html" class="hover:underline">Contact</a></li>
+            </ul>
+
+            <!-- cart icon and burger btn -->
+            <div class=" flex gap-7 ">
+                <button id="cart-toggle" class="text-black focus:outline-none">
+                    <i class="fa-solid fa-cart-shopping text-2xl"></i>
+                </button>
+                <button id="menu-toggle" class="text-black focus:outline-none md:hidden">
+                    <i class="fa fa-bars fa-2x"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- mobile menu  -->
+        <div id="mobile-menu" class="md:hidden bg-[#8b5cf6ad] text-white p-4 h-screen flex justify-center hidden items-center absolute w-full">
+            <ul class="flex flex-col gap-8 text-2xl text-center ">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="store.html">Store</a></li>
+                <li><a hhref="pages/about-us.html">About us</a></li>
+                <li><a href="pages/contact-us.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- cart menu -->
+        <div id="cart-menu" class="fixed top-0 right-0 bg-white w-80 h-full z-50 transform translate-x-full transition-transform duration-300">
+            <div class="p-6 h-screen">
+                <!-- Close Button -->
+                <button id="cart-close" class="absolute top-4 right-4 text-2xl text-gray-600">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+                
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Your Cart</h2>
+                <div class="flex flex-col justify-between">
+                    
+                <ul id="item-list" class="space-y-4">
+                  
+                </ul>
+                <div class="mt-6">
+                    <p id="total-p" class="font-semibold text-gray-800"></p>
+                    <div class="flex gap-4">
+                        <button id="Checkout-btn" class="mt-4 bg-violet-500 text-white px-4 py-2 rounded-md w-full">Checkout</button>
+                        <button id="validation-btn" class="mt-4 bg-violet-500 text-white px-4 py-2 rounded-md w-full">Valid</button>
+                    </div>  
+                </div>
+            </div>
+            </div>
+        </div>
+    </header>
+<!-- section 1: Product Details Header -->
+    <section class="bg-[#F6F5FF] h-56 flex items-center justify-around">
+
+        <div>
+            <h2 class="text-[#101750] font-bold text-3xl">Prodcut Details</h2>
+            <p class="font-secondary font-medium">Home > Pages <span class="text-[#FB2E86]">> Product Details</span></p>
+        </div>
+        <div></div>
+    </section>
+<!-- Fin section 1: Product Details Header -->
+
+
+
+  <!-- section 2: Product Details -->
+        <section class="sec2  m-14 md:m-28 flex items-center justify-center ">
+            <div id="product-detail" class="flex gap-8 justify-center items-center flex-wrap  md:flex-nowrap	 w-4/5">
+               
+                
+                  
+
+            </div>
+        
+        </section>
+
+        <!-- section 2: FIN Product Details -->
+
+
+<!-- section 3: Product Description -->
+        <section class="bg-[#F6F5FF] h-full text-[#151875] ">
+         <div class="pt-8 pb-8 pl-16 pr-16 md:pl-80 md:pr-60 md:pt-16 md:pb-16 flex flex-col gap-8">
+
+            <div class="flex justify-between ">
+                <div class="flex gap-16 ">
+                <h3 class="font-bold underline">Description</h3>
+                <h3 class="font-bold">Additional Info</h3>
+                </div>
+                <div></div>
+               
+            </div>
+            <div class="flex flex-col gap-4 w-full">
+                <h4 class="font-semiBold">Varius tempor.</h4>
+                <p class="text-[#A9ACC6] text-justify ">Aliquam dis vulputate vulputate integer sagittis. Faucibus dolor ornare faucibus vel sed et eleifend habitasse amet. Montes, mauris varius ac est bibendum. Scelerisque a, risus ac ante. Velit consectetur neque, elit, aliquet. Non varius proin sed urna, egestas consequat laoreet diam tincidunt. Magna eget faucibus cras justo, tortor sed donec tempus. Imperdiet consequat, quis diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .</p>
+
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="font-semiBold">More Details</h4>
+                <div>
+                <div class="flex gap-2 ">
+                    <img class="h-4 w-4" src="../img/customize/akar-icons_arrow-up.png" alt="">
+                    <p class="text-[#A9ACC6] text-sm">Aliquam dis vulputate vulputate integer sagittis. Faucibus ds, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .</p>
+                </div>
+                <div class="flex gap-2 ">
+                    <img class="h-4 w-4" src="../img/customize/akar-icons_arrow-up.png" alt="">
+                    <p class="text-[#A9ACC6] text-sm">Aliquam dis vulputate vulputate integer sagittis. Faucibus ds, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .</p>
+                </div>
+
+                <div class="flex gap-2">
+                    <img class="h-4 w-4" src="../img/customize/akar-icons_arrow-up.png" alt="">
+                    <p class="text-[#A9ACC6] text-sm">Aliquam dis vulputate vulputate integer sagittis. Faucibus ds, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .</p>
+                </div>
+
+                <div class="flex gap-2 ">
+                    <img class="h-4 w-4" src="../img/customize/akar-icons_arrow-up.png" alt="">
+                    <p class="text-[#A9ACC6] text-sm">Aliquam dis vulputate vulputate integer sagittis. Faucibus ds, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .</p>
+                </div>
+            </div>
+
+            </div>
+        </div>
+
+        </section>
+ <!-- section 3: FIN Product Description -->
+
+ <!-- section 4: Other Products -->
+        <section>
+            <div class="pt-8 pb-8 pl-8 pr-8 md:pl-64 md:pr-80 w-full text-[#151875] flex flex-col gap-8">
+                <h3 class="text-[#101750] font-bold text-3xl">Related Products</h3>
+                <div class="flex justify-center md:justify-between flex-wrap lg:flex-nowrap gap-4">
+                <div class="cards w-4/5 md:w-1/5 ">
+                    <img src="../img/customize/Rectangle 128.png" alt="">
+                    <div class="flex justify-between">
+                        <p>MacBook Pro</p>
+                       <span class="">
+                        <i class="fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-2xs " style="color: #000000;"></i>
+                       </span>
+                    </div>
+                    <p class="text-sm ">$32.00</p>
+
+                </div>
+                <div class="cards w-4/5  md:w-1/5 ">
+                    <img src="../img/customize/Group 233.png" alt="">
+                    <div class="flex justify-between">
+                        <p class="">MacBook Air</p>
+                       <span class="">
+                        <i class="fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-2xs " style="color: #000000;"></i>
+                       </span>
+                    </div>
+                    <p class="text-sm ">$67.00</p>
+
+                </div>
+                <div class="cards w-4/5   md:w-1/5 ">
+                    <img src="../img/customize/Rectangle 130.png" alt="">
+                    <div class="flex justify-between ">
+                        <p class="text-2xs">Mouse</p>
+                       <span class="">
+                        <i class="fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-2xs " style="color: #000000;"></i>
+                       </span>
+                    </div>
+                    <p class="text-sm ">$67.00</p>
+
+                </div>
+                <div class="cards w-4/5  md:w-1/5 ">
+                    <img src="../img/customize/Rectangle 131.png" alt="">
+                    <div class="flex justify-between">
+                        <p>Google Mouse</p>
+                       <span class="">
+                        <i class="fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-2xs " style="color: #000000;"></i>
+                       </span>
+                    </div>
+                    <p class="text-sm ">$51.00</p>
+
+                </div>
+            </div>
+            </div>
+
+
+        </section>
+ <!-- section 4:Fin Other Products-->
+ <div id="modal" class="fixed hidden inset-0 overflow-scroll overflow-x-hidden p-10 flex justify-center items-center bg-black bg-opacity-50">
+    <div class=" mt-24 rounded-md w-[900px] p-5 bg-white">
+        <span class="flex justify-end cursor-pointer text-red-500 font-bold"  id="modalCloseBtn">X</span>
+        <div class="pl-4 flex items-center justify-between mb-8">
+
+            <p>Devis (Quotation) No: 12345 <br>
+                Date: 11 November 2024 <br>
+                Validity: 30 days</p>
+            
+            <p>Client Information : <br>
+                Name: John Doe <br>
+                Email: john.doe@email.com <br>
+                Phone: +123 456 7890 <br>
+                Address: 1234 Elm Street, Suite 100, Cityville, State, 12345 <br>
+                
+            </p>
+        </div>
+        <div>
+            <table id="table">
+        
+            <tr class="border-2">
+                <th class="border-2 px-16">Product/Service</th>
+                <th class="border-2 px-16">Quantity</th> 
+                <th class="border-2 px-16">Unit Price</th>
+                <th class="border-2 px-16">Subtotal</th>
+            </tr>
+            </table>
+        </div>
+        
+        <div class="mt-8">
+            <h2 class="font-bold ml-5">Total Amount, TAX:</h2>
+            <p class="ml-10 font-secondary">Total Before Taxes: €100.00<br>
+                Total VAT: €20.00<br>
+                Total After Taxes: €120.00</p>
+        </div>
+
+        <div class="mt-8">
+            <h2 class="font-bold ml-5">Terms and Conditions:</h2>
+            <p class="ml-10 font-secondary">Payment Methods: Credit Card, PayPal, Bank Transfer <br>
+                Delivery Time: 5-7 business days <br>
+                Valid for 30 days from the date of issue</p>
+        </div>
+
+        <div class="mt-8">
+            <h2 class="font-bold ml-5">Action:</h2>
+            <p class="ml-10 font-secondary">Accept Quotation<br>
+                Print Quotation<br>
+                Proceed to Checkout</p>
+        </div>
+
+        <div class="flex flex-row justify-around items-center">
+            <input class="py-2 px-8 mt-5 bg-violet-500 rounded-xl text-white cursor-pointer" onclick="window.print()" type="button" value="Print">
+            <input class="py-2 px-5 mt-5 bg-violet-500 rounded-xl text-white cursor-pointer" type="button" value="Checkout">
+        </div>
+    </div>
+</div>
+
+    <!-- footer -->
+    <footer>
+        <div class="bg-[#EEEFFB] grid grid-cols-1 md:grid-cols-4 px-9 py-16 gap-9 justify-items-center pl-24">
+            <div class="space-y-6">
+                <h3 class="text-[#151875] text-3xl">Nexio</h3>
+                <div class="flex">
+                    <input type="email" placeholder="Enter Email Address" class="p-2 w-full bg-white" />
+                    <button class="bg-[#FB2E86] text-white w-28 h-11 rounded-r border-white border-2">Sign Up</button>
+                </div>
+                <div>
+                    <p class="text-[#8A8FB9]">Contact Info</p>
+                    <p class="text-[#8A8FB9]">17 Princess Road, London, Greater London NW1 8JR, UK</p>
+                </div>
+            </div>
+            <div class="space-y-3">
+                <h2 class="font-bold">Categories</h2>
+                <ul class="space-y-3 text-[#8A8FB9]">
+                    <li>Laptops</li>
+                    <li>Computers</li>
+                    <li>Smartphones</li>
+                    <li>télévisions</li>
+                    <li>électroménagers</li>
+                </ul>
+            </div>
+            <div class="space-y-3">
+                <h2 class="font-bold">Customer Care</h2>
+                <ul class="space-y-3 text-[#8A8FB9]">
+                    <li><a href="pages/about-us.html">About us</a></li>
+                    <li><a href="pages/contact-us.html">Contact us</a></li>
+                </ul>
+            </div>
+            <div class="space-y-3">
+                <h2 class="font-bold">Pages</h2>
+                <ul class="space-y-3 text-[#8A8FB9]">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pages/store.html">Store</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bg-[#E7E4F8] flex justify-center items-center h-12">
+            <p class="text-[#9DA0AE]">CodeBenders - All Rights Reserved</p>
+            <div>
+                <img src="Group 205.png" alt="">
+            </div>
+        </div>
+    </footer>
+    <script src="/js/main.js"></script>
+    <script src="/js/customize.js"></script>
+
+</body>
+</html>

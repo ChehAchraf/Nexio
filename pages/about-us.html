@@ -12,18 +12,52 @@
                 extend: {
                     fontFamily: {
                         primary: ['"Josefin Sans"', 'sans-serif'],
-                        secondary: ['"Loti"', 'sans-serif'],
+                        secondary: ['"Lato"', 'sans-serif'],
                     },
                 },
             },
         }
     </script>
+    <style>
+
+        #car1{
+            animation: scrolling 20s linear infinite;
+            
+        }
+        #car2{
+            animation: scrolling 20s linear infinite;
+            
+        }
+        #car3{
+            animation: scrolling 20s linear infinite;
+            
+        }
+        #car4{
+            animation: scrolling 20s linear infinite;
+            
+        }
+        #car5{
+            animation: scrolling 20s linear infinite;
+            
+        }
+
+        @keyframes scrolling {
+            0% { transform: translateX(80vw); }
+            100% { transform: translateX(-180vw); } 
+        }
+
+    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
+
 <body class="font-primary">
+
     <!-- Header with Navigation -->
+     
     <header class="">
-        <div class="flex justify-between items-center bg-violet-500 py-2 px-24">
+
+        <!-- Email and Phone Bar -->
+        <div class="flex justify-between items-center bg-violet-500 py-2 px-6 sm:px-12 md:px-24">
             <div class="flex items-center gap-4 text-white">
                 <i class="fa-regular fa-envelope text-2xl"></i>
                 <p class="text-lg md:text-base">NaxioAR@gmail.com</p>
@@ -34,10 +68,11 @@
             </div>  
         </div>
         
-        <!-- main navigation -->
-        <nav class="flex justify-between items-center px-24 py-6">
+        <!-- Main Navigation -->
+        <nav class="flex justify-between items-center px-6 sm:px-12 md:px-24 py-6">
             <a href="" class="text-3xl font-bold text-violet-500">Nexio</a>
-            <!-- menu for large screen -->
+            
+            <!-- Menu for Large Screen -->
             <ul class="hidden lg:flex gap-9 pt-1">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="store.html">Store</a></li>
@@ -45,9 +80,9 @@
                 <li><a href="contact-us.html">Contact</a></li>
             </ul>
 
-            <!-- cart icon and burger btn -->
+            <!-- Cart Icon and Burger Button -->
             <div class=" flex gap-7">
-                <button id="cart-toggle" class="text-black focus:outline-none">
+                <button onclick="openCard()" id="cart-toggle" class="text-black focus:outline-none">
                     <i class="fa-solid fa-cart-shopping text-2xl"></i>
                 </button>
                 <button id="menu-toggle" class="text-black focus:outline-none lg:hidden">
@@ -56,50 +91,212 @@
             </div>
         </nav>
 
-        <!-- mobile menu  -->
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="lg:hidden bg-[#8b5cf6ad] text-white p-4 h-screen flex justify-center items-center hidden absolute w-full">
             <ul class="flex flex-col gap-8 text-2xl text-center ">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="store.html">Store</a></li>
-                <li><a href="about-us.html">About us</a></li>
+                <li><a href="/pages/about-us.html">About us</a></li>
                 <li><a href="contact-us.html">Contact</a></li>
             </ul>
         </div>
 
-        <!-- cart menu -->
-        <div id="cart-menu" class="fixed top-0 right-0 bg-white w-80 h-full z-50 transform translate-x-full transition-transform duration-300">
-            <div class="p-6">
+        <!-- Cart Menu -->
+        <div  id="cart-menu" class="fixed top-0 right-0 bg-white w-80 h-full z-50 transform translate-x-full transition-transform duration-300">
+            <div class="p-6 h-screen">
                 <!-- Close Button -->
-                <button id="cart-close" class="absolute top-4 right-4 text-2xl text-gray-600">
+                <button onclick="closeCard()" id="cart-close" class="absolute top-4 right-4 text-2xl text-gray-600">
                     <i class="fa-solid fa-times"></i>
                 </button>
                 
                 <h2 class="text-2xl font-bold text-gray-800 mb-4">Your Cart</h2>
-                <ul class="space-y-4">
-                    <li class="flex justify-between text-sm text-gray-600">
-                        <span>Item 1</span>
-                        <span>$25.99</span>
-                    </li>
-                    <li class="flex justify-between text-sm text-gray-600">
-                        <span>Item 2</span>
-                        <span>$15.49</span>
-                    </li>
-                    <li class="flex justify-between text-sm text-gray-600">
-                        <span>Item 3</span>
-                        <span>$12.99</span>
-                    </li>
+                <div class="flex flex-col justify-between">
+                    
+                <ul id="item-list" class="space-y-4">
+                  
                 </ul>
                 <div class="mt-6">
-                    <p class="font-semibold text-gray-800">Total: $54.47</p>
-                    <button class="mt-4 bg-violet-500 text-white px-4 py-2 rounded-md w-full">Checkout</button>
-                </div>
+                    <p id="total-p" class="font-semibold text-gray-800"></p>
+                    <div class="flex gap-4">
+                        <button id="Checkout-btn" class="mt-4 bg-violet-500 text-white px-4 py-2 rounded-md w-full">Checkout</button>
+                        <button id="validation-btn" class="mt-4 bg-violet-500 text-white px-4 py-2 rounded-md w-full">Valid</button>
+                    </div>              
+                  </div>
+            </div>
             </div>
         </div>
     </header>
 
-    <!-- footer -->
+    <!-- Page Information -->
+    <section class="bg-[#F6F5FF] h-56 flex items-center justify-center sm:justify-between px-6 sm:px-24">
+        <div class="text-center sm:text-left">
+            <h2 class="text-[#101750] font-bold text-3xl">About us</h2>
+            <p class="font-secondary font-medium">Home <span class="text-[#FB2E86]">> About us</span></p>
+        </div>
+        <div></div>
+    </section>
+    
+    <!-- "Know About Our" Section -->
+    <section class="flex flex-col sm:flex-row justify-center gap-12 my-24 px-6 sm:px-24">
+        <img src="/img/about/firstaboutimg.png" alt="Persones" class="w-full sm:w-1/2 lg:w-1/3">
+        <div class="mt-8">
+            <h2 class="font-primary text-4xl mb-4 text-[#151875] font-bold">Know About Our Ecomerce<br>Business, History</h2>
+            <p>Nexio is an innovative electronics company with the ambition to<br>establish itself as a major player in the global market, alongside<br>industry giants like Apple, Samsung, and Huawei. Our goal is<br>to redefine the technological experience with a wide range of high-<br>quality products, from smartphones and laptops to home<br>appliances such as refrigerators and televisions.</p>
+            <button class="py-3 px-8 mt-12 rounded-md bg-[#FB2E86] text-white"><a href="/pages/contact-us.html">Contact us</a></button>
+        </div>
+    </section>
+
+    <!-- Our Features -->
+    <section>
+        <h2 class="text-center mb-16 font-bold text-4xl text-[#151875]">Our Features</h2>
+        <!-- Card Container -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 px-6 sm:px-12 md:px-24">
+            <!-- freeDelivery -->
+            <div class="text-center h-80 flex flex-col justify-center items-center shadow-2xl">
+                <i style="font-size: xxx-large;" class="fa-solid fa-truck"></i>
+                <h2 class="text-[#151875] py-6 font-bold text-xl">Free Delivery</h2>
+                <p class="text-center">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit.<br> Massa purus gravida.</p>
+            </div>
+
+            <!-- 100% cash back -->
+            <div class="text-center h-80 flex flex-col justify-center items-center shadow-2xl">
+                <i style="font-size: xxx-large;" class="fa-solid fa-hand-holding-dollar"></i>
+                <h2 class="text-[#151875] py-6 font-bold text-xl">100% Cash Back</h2>
+                <p class="text-center">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit.<br> Massa purus gravida.</p>
+            </div>
+
+            <!-- Quality products -->
+            <div class="text-center h-80 flex flex-col justify-center items-center shadow-2xl">
+                <i style="font-size: xxx-large;" class="fa-solid fa-certificate"></i>
+                <h2 class="text-[#151875] py-6 font-bold text-xl">Quality Products</h2>
+                <p class="text-center">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit.<br> Massa purus gravida.</p>
+            </div>
+
+            <!-- 24/7 support -->
+            <div class="text-center h-80 flex flex-col justify-center items-center shadow-2xl">
+                <i style="font-size: xxx-large;" class="fa-solid fa-headset"></i>
+                <h2 class="text-[#151875] py-6 font-bold text-xl">24/7 Support</h2>
+                <p class="text-center">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit.<br> Massa purus gravida.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section>
+        <h2 class="text-center my-20 font-bold text-4xl text-[#151875]">Our Client Say!</h2>
+        <div class="flex flex-col justify-center items-center">
+            <img src="/img/about/OurClient.png" alt="OurClient" class="w-32 sm:w-48 lg:w-64">
+            <h2 class="font-secondary pt-3 font-medium text-xl">Will Smith</h2>
+            <span class="text-[#8A8FB9] font-secondary text-sm">Ceo At Webecy Digital</span>
+            <p class="text-center text-[#8A8FB9] p-6 font-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non duis ultrices quam vel dui sollicitudin<br>aliquet id arcu. Nam vitae a enim nunc, sed sapien egestas ac nam. Tristique ultrices dolor<br>aliquam lacus volutpat praesent.</p>
+            <img src="/img/about/lastOurclients.png" alt="decorations" class="w-20 sm:w-20 md:w-20 lg:w-20 mx-20">
+        </div>
+    </section>
+
+    <!-- Partners -->
+    <section>
+        <h2 class="text-center my-20 font-bold text-4xl text-[#151875]">Our Partners</h2>
+        <div class="flex justify-evenly items-center gap-6 overflow-hidden">
+            <img id="car1" src="/img/about/google.png" alt="googleLogo" class="w-24 md:w-22 sm:16">
+            <img id="car2" src="/img/about/amazon.png" alt="amazonLogo" class="w-24 md:w-22 sm:16">
+            <img id="car3" src="/img/about/paypal.png" alt="paypalLogo" class="w-24 md:w-22 sm:16">
+            <img id="car4" src="/img/about/spotify.png" alt="spotifylogo" class="w-24 md:w-22 sm:16">
+            <img id="car5" src="/img/about/firefox.png" alt="firefoxlogo" class="w-24 md:w-22 sm:16">
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mb-20">
+        <h2 class="text-center mt-36 mb-10 font-bold text-4xl text-[#151875]">Frequently Asked Questions</h2>
+        
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-6 px-6 md:px-24">
+            <img src="/img/about/FAQphoto.png" alt="FAQ img" class="w-full sm:w-1/2 lg:w-1/3">
+            
+            <div class="flex flex-col justify-center items-center space-y-4">
+                <details class="text-center p-6 bg-[#F9EFFD] w-full sm:w-96 mb-2 shadow-2xl border-2">
+                    <summary class="mb-2">Como faço para redefinir minha senha?</summary>
+                    <p>Lorem, ipsum dolor sit amet consectetur<br>adipisicing elit. Perspiciatis, repudiandae<br>quibusdam dolorum dolore natus impedit<br>consectetur recusandae consequuntur<br>doloremque sed magni, nostrum officiis<br>vitae atque molestiae sit magnam.<br>Mollitia, illo?</p>
+                </details>
+                <details class="text-center p-6 bg-[#F9EFFD] w-full sm:w-96 mb-2 shadow-2xl border-2">
+                    <summary class="mb-2">Como faço para redefinir minha senha?</summary>
+                    <p>Lorem, ipsum dolor sit amet consectetur<br>adipisicing elit. Perspiciatis, repudiandae<br>quibusdam dolorum dolore natus impedit<br>consectetur recusandae consequuntur<br>doloremque sed magni, nostrum officiis<br>vitae atque molestiae sit magnam.<br>Mollitia, illo?</p>
+                </details>
+                <details class="text-center p-6 bg-[#F9EFFD] w-full sm:w-96 mb-2 shadow-2xl border-2">
+                    <summary class="mb-2">Como faço para redefinir minha senha?</summary>
+                    <p>Lorem, ipsum dolor sit amet consectetur<br>adipisicing elit. Perspiciatis, repudiandae<br>quibusdam dolorum dolore natus impedit<br>consectetur recusandae consequuntur<br>doloremque sed magni, nostrum officiis<br>vitae atque molestiae sit magnam.<br>Mollitia, illo?</p>
+                </details>
+                <details class="text-center p-6 bg-[#F9EFFD] w-full sm:w-96 mb-2 shadow-2xl">
+                    <summary class="mb-2">Como faço para redefinir minha senha?</summary>
+                    <p>Lorem, ipsum dolor sit amet consectetur<br>adipisicing elit. Perspiciatis, repudiandae<br>quibusdam dolorum dolore natus impedit<br>consectetur recusandae consequuntur<br>doloremque sed magni, nostrum officiis<br>vitae atque molestiae sit magnam.<br>Mollitia, illo?</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- modal -->
+     
+        <div id="modal" class="fixed hidden inset-0 overflow-scroll overflow-x-hidden p-10 flex justify-center items-center bg-black bg-opacity-50">
+            <div class=" mt-24 rounded-md w-[900px] p-5 bg-white">
+                <span class="flex justify-end cursor-pointer text-red-500 font-bold"  id="modalCloseBtn">X</span>
+                <div class="pl-4 flex items-center justify-between mb-8">
+        
+                    <p>Devis (Quotation) No: 12345 <br>
+                        Date: 11 November 2024 <br>
+                        Validity: 30 days</p>
+                    
+                    <p>Client Information : <br>
+                        Name: John Doe <br>
+                        Email: john.doe@email.com <br>
+                        Phone: +123 456 7890 <br>
+                        Address: 1234 Elm Street, Suite 100, Cityville, State, 12345 <br>
+                        
+                    </p>
+                </div>
+                <div>
+                    <table id="table">
+                
+                    <tr class="border-2">
+                        <th class="border-2 px-16">Product/Service</th>
+                        <th class="border-2 px-16">Quantity</th> 
+                        <th class="border-2 px-16">Unit Price</th>
+                        <th class="border-2 px-16">Subtotal</th>
+                    </tr>
+                    </table>
+                </div>
+                
+                <div class="mt-8">
+                    <h2 class="font-bold ml-5">Total Amount, TAX:</h2>
+                    <p class="ml-10 font-secondary">Total Before Taxes: €100.00<br>
+                        Total VAT: €20.00<br>
+                        Total After Taxes: €120.00</p>
+                </div>
+        
+                <div class="mt-8">
+                    <h2 class="font-bold ml-5">Terms and Conditions:</h2>
+                    <p class="ml-10 font-secondary">Payment Methods: Credit Card, PayPal, Bank Transfer <br>
+                        Delivery Time: 5-7 business days <br>
+                        Valid for 30 days from the date of issue</p>
+                </div>
+        
+                <div class="mt-8">
+                    <h2 class="font-bold ml-5">Action:</h2>
+                    <p class="ml-10 font-secondary">Accept Quotation<br>
+                        Print Quotation<br>
+                        Proceed to Checkout</p>
+                </div>
+        
+                <div class="flex flex-row justify-around items-center">
+                    <input class="py-2 px-8 mt-5 bg-violet-500 rounded-xl text-white cursor-pointer" onclick="window.print()" type="button" value="Print">
+                    <input class="py-2 px-5 mt-5 bg-violet-500 rounded-xl text-white cursor-pointer" type="button" value="Checkout">
+                </div>
+            </div>
+        </div>
+       
+    <!-- modal-end -->
+
+    <!-- Footer -->
     <footer>
-        <div class="bg-[#EEEFFB] grid grid-cols-1 md:grid-cols-4 px-9 py-16 gap-9 justify-items-center">
+        <div class="bg-[#EEEFFB] grid grid-cols-1 md:grid-cols-4 px-9 py-16 gap-9 justify-items-center pl-24">
             <div class="space-y-6">
                 <h3 class="text-[#151875] text-3xl">Nexio</h3>
                 <div class="flex">
@@ -143,6 +340,8 @@
             </div>
         </div>
     </footer>
+
     <script src="../js/main.js"></script>
+    <script src="../js/about.js"></script>
 </body>
 </html>

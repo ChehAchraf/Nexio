@@ -24,83 +24,402 @@
 <body class="font-primary">
     <!-- Header with Navigation -->
     <header class="">
-        <div class="flex justify-between items-center bg-violet-500 py-2 px-24">
-            <div class="flex items-center gap-4 text-white">
+        <div class="sm:flex sm:flex-col sm:justify-center sm:items-center md:flex-row md:justify-between md:items-center bg-violet-500 px-4 md:py-2 md:px-24">
+            <!-- Email Section -->
+            <div class="flex items-center gap-4 text-white sm:text-center">
                 <i class="fa-regular fa-envelope text-2xl"></i>
-                <p class="text-lg md:text-base">NaxioAR@gmail.com</p>
-            </div>       
-            <div class="flex items-center gap-4 text-white">
+                <p class="text-lg md:text-base">NexioAR@gmail.com</p>
+            </div>
+        
+            <!-- Phone Section -->
+            <div class="flex items-center gap-4 text-white sm:text-center">
                 <i class="fa-solid fa-phone text-lg"></i>
                 <p class="text-sm md:text-base">(12345)67890</p>
-            </div>  
+            </div>
         </div>
         
+        
         <!-- main navigation -->
-        <nav class="flex justify-between items-center px-24 py-6">
+        <nav class="flex justify-between items-center px-4 md:px-24 py-6">
             <a href="" class="text-3xl font-bold text-violet-500">Nexio</a>
             <!-- menu for large screen -->
             <ul class="hidden lg:flex gap-9 pt-1">
-                <li><a href="index.html" class="hover:underline">Home</a></li>
+                <li><a href="../index.html" class="hover:underline">Home</a></li>
                 <li><a href="pages/store.html" class="hover:underline">Store</a></li>
                 <li><a href="pages/about-us.html" class="hover:underline">About us</a></li>
                 <li><a href="pages/contact-us.html" class="hover:underline">Contact</a></li>
             </ul>
 
             <!-- cart icon and burger btn -->
-            <div class=" flex gap-7">
-                <button id="cart-toggle" class="text-black focus:outline-none">
+            <div class=" flex gap-7 ">
+                <button onclick="openCard()" id="cart-toggle" class="text-black focus:outline-none">
                     <i class="fa-solid fa-cart-shopping text-2xl"></i>
                 </button>
-                <button id="menu-toggle" class="text-black focus:outline-none lg:hidden">
+                <button id="menu-toggle" class="text-black focus:outline-none md:hidden">
                     <i class="fa fa-bars fa-2x"></i>
                 </button>
             </div>
         </nav>
 
         <!-- mobile menu  -->
-        <div id="mobile-menu" class="lg:hidden bg-[#8b5cf6ad] text-white p-4 h-screen flex justify-center items-center hidden absolute w-full">
+        <div id="mobile-menu" class="md:hidden bg-[#8b5cf6ad] text-white p-4 h-screen flex justify-center hidden items-center absolute w-full">
             <ul class="flex flex-col gap-8 text-2xl text-center ">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="pages/store.html">Store</a></li>
+                <li><a href="./pages/store.html">Store</a></li>
                 <li><a hhref="pages/about-us.html">About us</a></li>
                 <li><a href="pages/contact-us.html">Contact</a></li>
             </ul>
         </div>
 
         <!-- cart menu -->
-        <div id="cart-menu" class="fixed top-0 right-0 bg-white w-80 h-full z-50 transform translate-x-full transition-transform duration-300">
-            <div class="p-6">
+        <div  id="cart-menu" class="fixed top-0 right-0 bg-white w-80 h-full z-50 transform translate-x-full transition-transform duration-300">
+            <div class="p-6 h-screen">
                 <!-- Close Button -->
-                <button id="cart-close" class="absolute top-4 right-4 text-2xl text-gray-600">
+                <button onclick="closeCard()" id="cart-close" class="absolute top-4 right-4 text-2xl text-gray-600">
                     <i class="fa-solid fa-times"></i>
                 </button>
                 
                 <h2 class="text-2xl font-bold text-gray-800 mb-4">Your Cart</h2>
-                <ul class="space-y-4">
-                    <li class="flex justify-between text-sm text-gray-600">
-                        <span>Item 1</span>
-                        <span>$25.99</span>
-                    </li>
-                    <li class="flex justify-between text-sm text-gray-600">
-                        <span>Item 2</span>
-                        <span>$15.49</span>
-                    </li>
-                    <li class="flex justify-between text-sm text-gray-600">
-                        <span>Item 3</span>
-                        <span>$12.99</span>
-                    </li>
+                <div class="flex flex-col justify-between">
+                    
+                <ul id="item-list" class="space-y-4">
+                  
                 </ul>
                 <div class="mt-6">
-                    <p class="font-semibold text-gray-800">Total: $54.47</p>
-                    <button class="mt-4 bg-violet-500 text-white px-4 py-2 rounded-md w-full">Checkout</button>
-                </div>
+                    <p id="total-p" class="font-semibold text-gray-800"></p>
+                    <div class="flex gap-4">
+                        <button id="Checkout-btn" class="mt-4 bg-violet-500 text-white px-4 py-2 rounded-md w-full">Checkout</button>
+                        <button id="validation-btn" class="mt-4 bg-violet-500 text-white px-4 py-2 rounded-md w-full">Valid</button>
+                    </div>              
+                  </div>
+            </div>
             </div>
         </div>
     </header>
 
+    <div id="modal" class="fixed hidden inset-0 overflow-scroll overflow-x-hidden p-10 flex justify-center items-center bg-black bg-opacity-50">
+        <div class=" mt-24 rounded-md w-[900px] p-5 bg-white">
+            <span class="flex justify-end cursor-pointer text-red-500 font-bold"  id="modalCloseBtn">X</span>
+            <div class="pl-4 flex items-center justify-between mb-8">
+    
+                <p>Devis (Quotation) No: 12345 <br>
+                    Date: 11 November 2024 <br>
+                    Validity: 30 days</p>
+                
+                <p>Client Information : <br>
+                    Name: John Doe <br>
+                    Email: john.doe@email.com <br>
+                    Phone: +123 456 7890 <br>
+                    Address: 1234 Elm Street, Suite 100, Cityville, State, 12345 <br>
+                    
+                </p>
+            </div>
+            <div>
+                <table id="table">
+            
+                <tr class="border-2">
+                    <th class="border-2 px-16">Product/Service</th>
+                    <th class="border-2 px-16">Quantity</th> 
+                    <th class="border-2 px-16">Unit Price</th>
+                    <th class="border-2 px-16">Subtotal</th>
+                </tr>
+                </table>
+            </div>
+            
+            <div class="mt-8">
+                <h2 class="font-bold ml-5">Total Amount, TAX:</h2>
+                <p class="ml-10 font-secondary">Total Before Taxes: €100.00<br>
+                    Total VAT: €20.00<br>
+                    Total After Taxes: €120.00</p>
+            </div>
+    
+            <div class="mt-8">
+                <h2 class="font-bold ml-5">Terms and Conditions:</h2>
+                <p class="ml-10 font-secondary">Payment Methods: Credit Card, PayPal, Bank Transfer <br>
+                    Delivery Time: 5-7 business days <br>
+                    Valid for 30 days from the date of issue</p>
+            </div>
+    
+            <div class="mt-8">
+                <h2 class="font-bold ml-5">Action:</h2>
+                <p class="ml-10 font-secondary">Accept Quotation<br>
+                    Print Quotation<br>
+                    Proceed to Checkout</p>
+            </div>
+    
+            <div class="flex flex-row justify-around items-center">
+                <input class="py-2 px-8 mt-5 bg-violet-500 rounded-xl text-white cursor-pointer" onclick="window.print()" type="button" value="Print">
+                <input class="py-2 px-5 mt-5 bg-violet-500 rounded-xl text-white cursor-pointer" type="button" value="Checkout">
+            </div>
+        </div>
+    </div>
+
+    <!-- Debut de Mon Code  -->
+  <!-- Section Header -->
+<!-- remplacer le premier section avec ca  -->
+<section class="relative overflow-hidden bg-[#EEEFFB]">
+    <div id="slider-conatiner" class="flex w-full ">
+     <div class="slider w-screen flex flex-col min-w-full md:flex-row justify-center  h-auto min-w-full md:h-[80vh] mb-4 p-4 md:gap-[250px] min-w-full">
+              <div class="mt-8 md:mt-[150px] w-full md:w-80 flex flex-col gap-4  ">
+                  <!-- Texte du header -->
+                  <div>
+                  <p class="text-[#FB2E86] text-xs">Best Electronic Shop you will See...</p>
+                  <h1 class="font-josefin text-2xl md:text-3xl font-bold">Discover Our new high quality Products</h1>
+                  <p class="text-[#8A8FB9] font-Loti text-sm md:text-base">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.
+                  </p>
+                  <div class="flex justify-center md:justify-start">
+                      <button id="shopNowButton" class="p-2 bg-[#FB2E86] text-white">Shop Now</button>
+                  </div>
+                  </div>
+              </div>
+              <div class="flex justify-center w-full md:w-[500px] h-[300px] md:h-[500px] bg-[url('img/home/nexio.png')] bg-cover bg-center mt-8 md:mt-0">
+                  <img src="/img/home/pc.svg" alt="pc" class="w-1/2 md:w-auto mx-auto">
+              </div>
+     </div>   
+     <!-- items2 -->
+     <div class="slider w-screen flex flex-col min-w-full md:flex-row justify-center  h-auto md:h-[80vh] mb-4 p-4 md:gap-[250px]">
+      <div class="mt-8 md:mt-[150px] w-full md:w-80 flex flex-col gap-4 ">
+          <!-- Texte du header -->
+          <div>
+          <p class="text-[#FB2E86] text-xs">Best Electronic Shop you will See...</p>
+          <h1 class="font-josefin text-2xl md:text-3xl font-bold">Discover Our new high quality Products</h1>
+          <p class="text-[#8A8FB9] font-Loti text-sm md:text-base">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.
+          </p>
+          <div class="flex justify-center md:justify-start">
+              <button id="shopNowButton" class="p-2 bg-[#FB2E86] text-white">Shop Now</button>
+          </div>
+          </div>
+      </div>
+      <div class="flex justify-center w-full md:w-[500px] h-[300px] md:h-[500px] bg-[url('img/home/nexio.png')] bg-cover bg-center mt-8 md:mt-0">
+          <img src="/img/home/pc2.svg" alt="pc" class="w-1/2 md:w-auto mx-auto">
+      </div>
+  </div>   
+    </div>
+  </section>
+
+<!-- section categure -->
+
+<section class="w-full flex justify-center items-center p-16">
+    <div class="w-3/4">
+    <div class="flex justify-center mt-6 mb-6">
+        <!-- <h1 class="text-[#1A0B5B] font-josefin font-semibold text-xl md:text-2xl">Our categories</h1> -->
+        <h2 class="text-center mb-16 font-bold text-4xl text-[#151875]">Our categories</h2>
+    </div>
+    <div class="flex flex-col md:flex-row gap-4 md:gap-[10px] mx-4">
+        <div class="hidden md:block w-full md:w-[714px] h-[684px]">
+            <img src="img/home/grpImage.png" alt="grpImage" class="w-full h-full object-cover">
+        </div>
+        <div class="w-full md:w-[714px] h-full bg-[#8b5f6ad] p-4">
+            <div class="flex items-center gap-4">
+                <img src="img/home/iconHome.png" alt="icon" class="w-6 md:w-8">
+                <h5 class="text-[#151875] font-Loti text-lg md:text-xl">The Best Collections</h5>
+            </div>
+            <p class="text-[#1A0B5B] font-josefin text-sm md:text-base mt-4">
+                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable<br>
+                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                <div class="flex bg-[#F2F0FF] p-4">
+                    <img src="img/home/smartphone.png" alt="smartphone" class="w-16 md:w-1/3">
+                    <h4 class="text-[#1A0B5B] font-Loti text-base md:text-lg mt-2 ">Smartphone</h4>
+                </div>
+                <div class="flex bg-[#F2F0FF] p-4">
+                    <img src="img/home/electromenage.png" alt="electromenage" class="w-16 md:w-1/3">
+                    <h4 class="text-[#1A0B5B] font-Loti text-base md:text-lg mt-2 ">Household Appliance</h4>
+                </div>
+                <div class="flex bg-[#F2F0FF] p-4">
+                    <img src="img/home/tv.png" alt="electromenage" class="w-16 md:w-1/3">
+                    <h4 class="text-[#1A0B5B] font-Loti text-base md:text-lg mt-2 ">Smart TV</h4>
+                </div>
+                <div class="flex bg-[#F2F0FF] p-4">
+                    <img src="img/home/laptope.png" alt="electromenage" class="w-16 md:w-1/3">
+                    <h4 class="text-[#1A0B5B] font-Loti text-base md:text-lg mt-2 ">Laptops</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+
+<!-- Section Leatest Products -->
+ <section  class="mt-10 p-16">
+    <div class="flex justify-center  mb-8">
+
+        <h2 class="text-center mb-16 font-bold text-4xl text-[#151875]">Leatest Products</h2>
+    </div>
+    <div class="flex justify-center">
+        <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mx-4">
+          <div class="space-y-4">
+            <img src="img/home/phone.png" alt="phone" >
+            <div class="flex justify-between mx-2">
+                <p>Google Pixel Smart Phone</p>
+                <p>250.00$</p>
+
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <img src="img/home/dell.png" alt="phone" >
+            <div class="flex justify-between mx-2">
+                <p>Google Pixel Smart Phone</p>
+                <p>250.00$</p>
+
+            </div>
+          </div>
+          <div class="space-y-4">
+            <img src="img/home/serveur.png" alt="phone" >
+            <div class="flex justify-between mx-2">
+                <p>Google Pixel Smart Phone</p>
+                <p>250.00$</p>
+
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <img src="img/home/souris.png" alt="phone" >
+            <div class="flex justify-between mx-2">
+                <p>Google Pixel Smart Phone</p>
+                <p>250.00$</p>
+
+            </div>
+          </div>
+          <div class="space-y-4">
+            <img src="img/home/clavier.png" alt="phone" >
+            <div class="flex justify-between mx-2">
+                <p>Google Pixel Smart Phone</p>
+                <p>250.00$</p>
+
+            </div>
+          </div>
+          <div class="space-y-4">
+            <img src="img/home/machine.png" alt="phone" >
+            <div class="flex justify-between mx-2">
+                <p>Google Pixel Smart Phone</p>
+                <p>250.00$</p>
+
+            </div>
+          </div>
+
+          
+        </div>
+
+    </div>
+ </section>
+
+
+
+ <!-- section what we offre -->
+  <section class="mt-[50px] p-16 mb-4">
+    <div class="flex justify-center mb-6 ">
+        <h2 class="text-center mb-16 font-bold text-4xl text-[#151875]">What We Offre</h2>
+    </div>
+    <div class=" flex justify-center">
+                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
+                        <div class=" flex flex-col space-y-4  items-center  shadow-md w-[200px]">
+                            <img src="img/home/transport.svg" alt="transpoort" >
+                            <div class="mx-4 flex flex-col items-center space-y-3">
+                                <h3>24/7 Support</h3>
+                            <p class="text-center mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.</p>
+                            </div>
+                        </div>
+
+                        <div class=" flex flex-col space-y-4 items-center  shadow-md w-[200px]">
+                            <img src="img/home/argent.svg" alt="transpoort" >
+                            <div class="mx-4 flex flex-col items-center space-y-3">
+                                <h3>24/7 Support</h3>
+                            <p class="text-center mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.</p>
+                            </div>
+                        </div>
+
+                        <div class=" flex flex-col space-y-4 items-center  shadow-md w-[200px]">
+                            <img src="img/home/premium-quality 1.svg" alt="transpoort" >
+                            <div class="mx-4 flex flex-col items-center space-y-3">
+                                <h3>24/7 Support</h3>
+                            <p class="text-center mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.</p>
+                            </div>
+                        </div>
+
+                        <div class=" flex flex-col space-y-4 items-center  shadow-md w-[200px]">
+                            <img src="img/home/24-hours-support 1.svg" alt="transpoort" >
+                            <div class="mx-4 flex flex-col items-center space-y-3">
+                                <h3>24/7 Support</h3>
+                            <p class="text-center mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.</p>
+                            </div>
+                        </div>
+
+                        
+                </div>
+</div>
+  </section>
+
+
+
+
+
+<!-- Fin de mon code -->
+
+
+
+<div style="z-index: 1000;" id="modal" class="fixed hidden inset-0 z-10 overflow-scroll overflow-x-hidden p-10 flex justify-center items-center bg-black bg-opacity-50">
+    <div class=" mt-24 rounded-md w-[900px] p-5 bg-white">
+        <span class="flex justify-end cursor-pointer text-red-500 font-bold"  id="modalCloseBtn">X</span>
+        <div class="pl-4 flex items-center justify-between mb-8">
+
+            <p>Devis (Quotation) No: 12345 <br>
+                Date: 11 November 2024 <br>
+                Validity: 30 days</p>
+            
+            <p>Client Information : <br>
+                Name: John Doe <br>
+                Email: john.doe@email.com <br>
+                Phone: +123 456 7890 <br>
+                Address: 1234 Elm Street, Suite 100, Cityville, State, 12345 <br>
+                
+            </p>
+        </div>
+        <div>
+            <table id="table">
+        
+            
+            </table>
+        </div>
+        
+        <div class="mt-8">
+            <h2 class="font-bold ml-5">Total Amount, TAX:</h2>
+            <p class="ml-10 font-secondary">Total Before Taxes: €100.00<br>
+                Total VAT: €20.00<br>
+                Total After Taxes: €120.00</p>
+        </div>
+
+        <div class="mt-8">
+            <h2 class="font-bold ml-5">Terms and Conditions:</h2>
+            <p class="ml-10 font-secondary">Payment Methods: Credit Card, PayPal, Bank Transfer <br>
+                Delivery Time: 5-7 business days <br>
+                Valid for 30 days from the date of issue</p>
+        </div>
+
+        <div class="mt-8">
+            <h2 class="font-bold ml-5">Action:</h2>
+            <p class="ml-10 font-secondary">Accept Quotation<br>
+                Print Quotation<br>
+                Proceed to Checkout</p>
+        </div>
+
+        <div class="flex flex-row justify-around items-center">
+            <input class="py-2 px-8 mt-5 bg-violet-500 rounded-xl text-white cursor-pointer" onclick="window.print()" type="button" value="Print">
+            <input class="py-2 px-5 mt-5 bg-violet-500 rounded-xl text-white cursor-pointer" type="button" value="Checkout">
+        </div>
+    </div>
+</div>
+
+
+
     <!-- footer -->
     <footer>
-        <div class="bg-[#EEEFFB] grid grid-cols-1 md:grid-cols-4 px-9 py-16 gap-9 justify-items-center">
+        <div class="bg-[#EEEFFB] grid grid-cols-1 md:grid-cols-4 px-9 py-16 gap-9 justify-items-center pl-24">
             <div class="space-y-6">
                 <h3 class="text-[#151875] text-3xl">Nexio</h3>
                 <div class="flex">
@@ -125,25 +444,27 @@
             <div class="space-y-3">
                 <h2 class="font-bold">Customer Care</h2>
                 <ul class="space-y-3 text-[#8A8FB9]">
-                    <li><a href="pages/about-us.html">About us</a></li>
-                    <li><a href="pages/contact-us.html">Contact us</a></li>
+                    <li><a href="about-us.html">About us</a></li>
+                    <li><a href="contact-us.html">Contact us</a></li>
                 </ul>
             </div>
             <div class="space-y-3">
                 <h2 class="font-bold">Pages</h2>
                 <ul class="space-y-3 text-[#8A8FB9]">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="pages/store.html">Store</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="store.html">Store</a></li>
                 </ul>
             </div>
         </div>
         <div class="bg-[#E7E4F8] flex justify-center items-center h-12">
             <p class="text-[#9DA0AE]">CodeBenders - All Rights Reserved</p>
             <div>
-                <img src="Group 205.png" alt="">
+                <img src="img/home/Group 205.svg" alt="">
             </div>
         </div>
     </footer>
-    <script src="/js/main.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+
 </body>
 </html>

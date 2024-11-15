@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexio - Shop The best Collection</title>
+    <title>Nexio - Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Loti:wght@400;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -23,10 +24,10 @@
 <body class="font-primary">
     <!-- Header with Navigation -->
     <header class="">
-        <div class="flex justify-between items-center bg-violet-500 py-2 px-24">
+        <div class="flex justify-between items-center bg-violet-500 px-4 md:py-2 md:px-24">
             <div class="flex items-center gap-4 text-white">
                 <i class="fa-regular fa-envelope text-2xl"></i>
-                <p class="text-lg md:text-base">NaxioAR@gmail.com</p>
+                <p class="text-lg md:text-base">NexioAR@gmail.com</p>
             </div>       
             <div class="flex items-center gap-4 text-white">
                 <i class="fa-solid fa-phone text-lg"></i>
@@ -35,71 +36,154 @@
         </div>
         
         <!-- main navigation -->
-        <nav class="flex justify-between items-center px-24 py-6">
+        <nav class="flex justify-between items-center px-4 md:px-24 py-6">
             <a href="" class="text-3xl font-bold text-violet-500">Nexio</a>
             <!-- menu for large screen -->
             <ul class="hidden lg:flex gap-9 pt-1">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="store.html">Store</a></li>
-                <li><a href="about-us.html">About us</a></li>
-                <li><a href="contact-us.html">Contact</a></li>
+                <li><a href="../index.html" class="hover:underline">Home</a></li>
+                <li><a href="store.html" class="hover:underline">Store</a></li>
+                <li><a href="about-us.html" class="hover:underline">About us</a></li>
+                <li><a href="contact-us.html" class="hover:underline">Contact</a></li>
             </ul>
 
             <!-- cart icon and burger btn -->
-            <div class=" flex gap-7">
-                <button id="cart-toggle" class="text-black focus:outline-none">
+            <div class=" flex gap-7 ">
+                <button onclick="document.getElementById('cart-menu').style.transform = 'translateX(0)'" id="cart-toggle" class="text-black focus:outline-none">
                     <i class="fa-solid fa-cart-shopping text-2xl"></i>
                 </button>
-                <button id="menu-toggle" class="text-black focus:outline-none lg:hidden">
+                <button id="menu-toggle" class="text-black focus:outline-none md:hidden">
                     <i class="fa fa-bars fa-2x"></i>
                 </button>
             </div>
         </nav>
 
         <!-- mobile menu  -->
-        <div id="mobile-menu" class="lg:hidden bg-[#8b5cf6ad] text-white p-4 h-screen flex justify-center items-center hidden absolute w-full">
+        <div id="mobile-menu" class="md:hidden bg-[#8b5cf6ad] text-white p-4 h-screen flex justify-center hidden items-center absolute w-full">
             <ul class="flex flex-col gap-8 text-2xl text-center ">
-                <li><a href="../index.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="store.html">Store</a></li>
-                <li><a href="about-us.html">About us</a></li>
+                <li><a hhref="about-us.html">About us</a></li>
                 <li><a href="contact-us.html">Contact</a></li>
             </ul>
         </div>
 
         <!-- cart menu -->
-        <div id="cart-menu" class="fixed top-0 right-0 bg-white w-80 h-full z-50 transform translate-x-full transition-transform duration-300">
-            <div class="p-6">
+        <div  id="cart-menu" class="fixed top-0 right-0 bg-white w-80 h-full z-50 transform translate-x-full transition-transform duration-300">
+            <div class="p-6 h-screen">
                 <!-- Close Button -->
-                <button id="cart-close" class="absolute top-4 right-4 text-2xl text-gray-600">
+                <button onclick="closeCard()" id="cart-close" class="absolute top-4 right-4 text-2xl text-gray-600">
                     <i class="fa-solid fa-times"></i>
                 </button>
                 
                 <h2 class="text-2xl font-bold text-gray-800 mb-4">Your Cart</h2>
-                <ul class="space-y-4">
-                    <li class="flex justify-between text-sm text-gray-600">
-                        <span>Item 1</span>
-                        <span>$25.99</span>
-                    </li>
-                    <li class="flex justify-between text-sm text-gray-600">
-                        <span>Item 2</span>
-                        <span>$15.49</span>
-                    </li>
-                    <li class="flex justify-between text-sm text-gray-600">
-                        <span>Item 3</span>
-                        <span>$12.99</span>
-                    </li>
+                <div class="flex flex-col justify-between">
+                    
+                <ul id="item-list" class="space-y-4">
+                  
                 </ul>
                 <div class="mt-6">
-                    <p class="font-semibold text-gray-800">Total: $54.47</p>
-                    <button class="mt-4 bg-violet-500 text-white px-4 py-2 rounded-md w-full">Checkout</button>
-                </div>
+                    <p id="total-p" class="font-semibold text-gray-800"></p>
+                    <div class="flex gap-4">
+                        <button id="Checkout-btn" class="mt-4 bg-violet-500 text-white px-4 py-2 rounded-md w-full">Checkout</button>
+                        <button id="validation-btn" class="mt-4 bg-violet-500 text-white px-4 py-2 rounded-md w-full">Valid</button>
+                    </div>              
+                  </div>
+            </div>
             </div>
         </div>
     </header>
+    <!-- Page Info -->
+    <section class="bg-[#F6F5FF] h-56 flex items-center justify-center sm:justify-between px-6 sm:px-24">
+        <div class="text-center sm:text-left">
+            <h1 class="text-[#101750] font-bold text-3xl">Store</h1>
+            <p class="font-secondary font-medium">Home <span class="text-[#FB2E86]">> Store</span></p>
+        </div>
+        <div></div>
+    </section>
+    <!-- start the stor section  -->
+     <section class="px-24 py-24">
+        <div class="flex justify-between">
+            <p class="text-lg text-[#1A0B5B]">All the Best Products Just in one click</p>
+            <div class="flex gap-2 items-center">
+                <label for="sort-by-categorie">Sort by : </label>
+                <select class="text-[#8A8FB9]" name="categories" id="sort-by-categorie">
+                    <option value="" selected>All Categories</option>
+                    <option value="laptop">Laptops</option>
+                    <option value="PC">Computers</option>
+                    <option value="smartphone">Smartphones</option>
+                    <option value="télévisions">Télévisions</option>
+                    <option value="electromenager">electromenager</option>
+                    <option value="souris">souris</option>
+                </select>
+            </div>
+        </div>
+        <div id="product" class="py-24 grid grid-cols-1 gap-16 md:grid-cols-3 ">
+            <!-- product -->
+            
+        </div>
+        <div class="flex justify-center">
+                <div id="pagination-buttons" class="space-x-4 " >
 
+                </div>
+        </div>
+     </section>
+     <!-- modal -->
+     <div id="modal" class="fixed hidden inset-0 overflow-scroll overflow-x-hidden p-10 flex justify-center items-center bg-black bg-opacity-50">
+        <div class=" mt-24 rounded-md w-[900px] p-5 bg-white">
+            <span class="flex justify-end cursor-pointer text-red-500 font-bold"  id="modalCloseBtn">X</span>
+            <div class="pl-4 flex items-center justify-between mb-8">
+    
+                <p>Devis (Quotation) No: 12345 <br>
+                    Date: 11 November 2024 <br>
+                    Validity: 30 days</p>
+                
+                <p>Client Information : <br>
+                    Name: John Doe <br>
+                    Email: john.doe@email.com <br>
+                    Phone: +123 456 7890 <br>
+                    Address: 1234 Elm Street, Suite 100, Cityville, State, 12345 <br>
+                    
+                </p>
+            </div>
+            <div>
+                <table id="table">
+            
+                <tr class="border-2">
+                    <th class="border-2 px-16">Product/Service</th>
+                    <th class="border-2 px-16">Quantity</th> 
+                    <th class="border-2 px-16">Unit Price</th>
+                    <th class="border-2 px-16">Subtotal</th>
+                </tr>
+                </table>
+            </div>
+            
+            <ul id="Total-tax" class="mt-8">
+            </ul>
+    
+            <div class="mt-8">
+                <h2 class="font-bold ml-5">Terms and Conditions:</h2>
+                <p class="ml-10 font-secondary">Payment Methods: Credit Card, PayPal, Bank Transfer <br>
+                    Delivery Time: 5-7 business days <br>
+                    Valid for 30 days from the date of issue</p>
+            </div>
+    
+            <div class="mt-8">
+                <h2 class="font-bold ml-5">Action:</h2>
+                <p class="ml-10 font-secondary">Accept Quotation<br>
+                    Print Quotation<br>
+                    Proceed to Checkout</p>
+            </div>
+    
+            <div class="flex flex-row justify-around items-center">
+                <input class="py-2 px-8 mt-5 bg-violet-500 rounded-xl text-white cursor-pointer" onclick="window.print()" type="button" value="Print">
+                <input class="py-2 px-5 mt-5 bg-violet-500 rounded-xl text-white cursor-pointer" type="button" value="Checkout">
+            </div>
+        </div>
+    </div>
+      <!-- fin modal -->
     <!-- footer -->
     <footer>
-        <div class="bg-[#EEEFFB] grid grid-cols-1 md:grid-cols-4 px-9 py-16 gap-9 justify-items-center">
+        <div class="bg-[#EEEFFB] grid grid-cols-1 md:grid-cols-4 px-9 py-16 gap-9 justify-items-center pl-24">
             <div class="space-y-6">
                 <h3 class="text-[#151875] text-3xl">Nexio</h3>
                 <div class="flex">
@@ -143,6 +227,6 @@
             </div>
         </div>
     </footer>
-    <script src="../js/main.js"></script>
+    <script src="../js/store.js"></script>
 </body>
 </html>
