@@ -23,8 +23,8 @@
 <body class="font-primary">
     <!-- Header with Navigation -->
     <header class="">
-        <div class="flex justify-between items-center bg-violet-500 px-4 md:py-2 md:px-24">
-            <div class="flex items-center gap-4 text-white">
+        <div class="flex justify-between items-center bg-violet-500 px-4 md:py-2 md:px-24 flex-col md:flex-row">
+            <div class="flex items-center gap-4 text-white mb-4 md:mb-0">
                 <i class="fa-regular fa-envelope text-2xl"></i>
                 <p class="text-lg md:text-base">NexioAR@gmail.com</p>
             </div>       
@@ -33,6 +33,7 @@
                 <p class="text-sm md:text-base">(12345)67890</p>
             </div>  
         </div>
+        
         
         <!-- main navigation -->
         <nav class="flex justify-between items-center px-4 md:px-24 py-6">
@@ -99,7 +100,7 @@
               <h3 class="text-[#FB2E86] text-base mb-5 font-lato">We're Here to Help You!</h3>
               <h1 class="text-2xl md:text-4xl font-bold mb-4 text-black font-josefin">Contact Us</h1>
               <p class="text-base leading-relaxed mb-6 text-[#8A8FB9] font-lato">Have questions or need assistance? Our team is here to make your experience smooth and enjoyable. Reach out to us anytime, and we’ll get back to you as soon as possible.</p>
-              <button class="py-2.5 px-5 bg-[#FB2E86] text-white text-base font-lato cursor-pointer transition-colors duration-300 hover:bg-[#e6006f]">Contact</button>
+              <a href="#cont" class="py-2.5 px-5 bg-[#FB2E86] text-white text-base font-lato cursor-pointer transition-colors duration-300 hover:bg-[#e6006f]">Contact</a>
           </div>
           
           <div class="contact-image flex-1 flex justify-center items-center mt-6 md:mt-0">
@@ -109,38 +110,39 @@
   </div>
 
 
-<section class="flex justify-start items-center w-full md:pl-24">
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl p-5 lg:p-10  w-3/4">
-    <div class="pt-10 lg:pt-36 text-center lg:text-left flex flex-col justify-center items-center lg:items-start">
-      <h1 class="font-josefin text-3xl font-bold lg:text-5xl text-black mb-4 lg:mb-2">Stay in Touch!</h1>
-      <p class="text-lg lg:text-2xl text-black mb-5 leading-relaxed font-lato pt-3">
-        If you have any questions, feedback, or inquiries, please feel free to reach out to us. We'd love to hear from you and will respond as soon as possible.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-5 justify-center">
-        <div class="flex items-center gap-2.5">
-          <img src="../img/contact/Vector.png" alt="" class="w-8 h-8">
-          <p class="text-base lg:text-lg text-black pt-4 font-lato">Always Available</p>
-        </div>
-        <div class="flex items-center gap-2.5">
-          <img src="../img/contact/Mask group.png" alt="" class="w-8 h-8">
-          <p class="text-base lg:text-lg text-black pt-4 font-lato">Here to Listen</p>
-        </div>
-        <div class="flex items-center gap-2.5">
-          <img src="../img/contact/Vector (1).png" alt="" class="w-8 h-8">
-          <p class="text-base lg:text-lg text-black pt-4 font-lato">Ready to Respond</p>
+  <section class="sm:h-70 flex justify-start items-center w-full md:pl-24">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl p-5 lg:p-10 w-full">
+      <div class="pt-10 lg:pt-36 text-center lg:text-left flex flex-col justify-center items-center lg:items-start">
+        <h1 class="font-josefin text-3xl font-bold lg:text-5xl text-black mb-4 lg:mb-2">Stay in Touch!</h1>
+        <p class="text-lg lg:text-2xl text-black mb-5 leading-relaxed font-lato pt-3">
+          If you have any questions, feedback, or inquiries, please feel free to reach out to us. We'd love to hear from you and will respond as soon as possible.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-5 justify-center">
+          <div class="flex items-center gap-2.5">
+            <img src="../img/contact/Vector.png" alt="" class="w-8 h-8">
+            <p class="text-base lg:text-lg text-black pt-4 font-lato">Always Available</p>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <img src="../img/contact/Mask group.png" alt="" class="w-8 h-8">
+            <p class="text-base lg:text-lg text-black pt-4 font-lato">Here to Listen</p>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <img src="../img/contact/Vector (1).png" alt="" class="w-8 h-8">
+            <p class="text-base lg:text-lg text-black pt-4 font-lato">Ready to Respond</p>
+          </div>
         </div>
       </div>
+      <div class="relative h-[400px] lg:h-[590px] pl-5">
+        <img src="../img/contact/Rectangle 140.png" alt="Happy person" class="absolute top-0 left-10 sm:left-20 w-48 h-44 sm:w-[378px] sm:h-[349px] object-cover z-10">
+        <img src="../img/contact/Rectangle 141.png" alt="Helping hands" class="absolute top-[150px] sm:top-[250px] left-[150px] sm:left-[350px] w-48 h-44 sm:w-[378px] sm:h-[349px] object-cover z-20">
+      </div>
     </div>
-    <div class="relative h-[400px] lg:h-[590px] pl-5">
-      <img src="../img/contact/Rectangle 140.png" alt="Happy person" class="absolute top-0 left-10 sm:left-20 w-48 h-44 sm:w-[378px] sm:h-[349px] object-cover z-10">
-      <img src="../img/contact/Rectangle 141.png" alt="Helping hands" class="absolute top-[150px] sm:top-[250px] left-[150px] sm:left-[350px] w-48 h-44 sm:w-[378px] sm:h-[349px] object-cover z-20">
-    </div>
-  </div>
-</section>
+  </section>
+  
 
 
 
-  <div class="contact-container text-center max-w-lg w-full mx-auto py-10 flex flex-col items-center">
+  <div id="cont" class="contact-container text-center max-w-lg w-full mx-auto py-10 flex flex-col items-center">
     <h1 class="text-4xl text-black mb-1 font-josefin-sans font-bold">Contact Us</h1>
     <p class="text-[#FB2E86] text-base mb-6 font-lato">Let's Connect!</p>
     <form id="form" class="contact-form w-3/4 flex flex-col gap-4 pt-8 sm:w-full">
@@ -178,74 +180,92 @@
 
 
 
-  <div class="relative bg-cover bg-center w-full max-w-[1923.11px] h-[507.2px] flex justify-center items-center text-white px-5 md:px-20" style="background-image: url('../img/contact/Rectangle\ 149.png');">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="text-left max-w-full px-5 md:px-16">
-        <h1 class="text-3xl font-bold mb-2 text-white font-josefin">Discover the Difference!</h1>
-        <p class="text-base leading-relaxed mb-6 font-josefin">Our product is designed with you in mind, bringing together quality, innovation, and reliability. Whether you're looking to enhance your daily routine or tackle specific challenges, we're here to help you achieve more. Try it for yourself, and experience the difference that our commitment to excellence can make!</p>
-      </div>
-      <div class="flex items-center justify-center text-left px-8">
-        <button class="py-4 px-6 rounded-full bg-[#FB2E86] text-white text-base font-josefin cursor-pointer transition-colors duration-300 hover:bg-[#e6006f]">Shop Now</button>
-      </div>
-    </div>
-  </div>
-  
-  <div id="modal" class="fixed hidden inset-0 overflow-scroll overflow-x-hidden p-10 flex justify-center items-center bg-black bg-opacity-50">
-    <div class=" mt-24 rounded-md w-[900px] p-5 bg-white">
-        <span class="flex justify-end cursor-pointer text-red-500 font-bold"  id="modalCloseBtn">X</span>
-        <div class="pl-4 flex items-center justify-between mb-8">
-
-            <p>Devis (Quotation) No: 12345 <br>
-                Date: 11 November 2024 <br>
-                Validity: 30 days</p>
-            
-            <p>Client Information : <br>
-                Name: John Doe <br>
-                Email: john.doe@email.com <br>
-                Phone: +123 456 7890 <br>
-                Address: 1234 Elm Street, Suite 100, Cityville, State, 12345 <br>
-                
+    <div class="relative bg-cover bg-center w-full h-[507.2px] flex justify-center items-center text-white px-5 md:px-20" style="background-image: url('../img/contact/Rectangle\ 149.png');">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-screen-xl">
+          <div class="text-center md:text-left px-5 md:px-16">
+            <h1 class="text-3xl md:text-4xl font-bold mb-2 text-white font-josefin">Discover the Difference!</h1>
+            <p class="text-base md:text-lg leading-relaxed mb-6 font-josefin">
+              Our product is designed with you in mind, bringing together quality, innovation, and reliability. Whether you're looking to enhance your daily routine or tackle specific challenges, we're here to help you achieve more. Try it for yourself, and experience the difference that our commitment to excellence can make!
             </p>
+          </div>
+          <div class="flex items-center justify-center text-left px-8">
+            <button id="shop" class="py-4 px-6 rounded-full bg-[#FB2E86] text-white text-base md:text-lg font-josefin cursor-pointer transition-colors duration-300 hover:bg-[#e6006f]">
+              Shop Now
+            </button>
+          </div>
         </div>
-        <div>
-            <table id="table">
-        
-            <tr class="border-2">
-                <th class="border-2 px-16">Product/Service</th>
-                <th class="border-2 px-16">Quantity</th> 
-                <th class="border-2 px-16">Unit Price</th>
-                <th class="border-2 px-16">Subtotal</th>
-            </tr>
-            </table>
-        </div>
-        
-        <div class="mt-8">
-            <h2 class="font-bold ml-5">Total Amount, TAX:</h2>
-            <p class="ml-10 font-secondary">Total Before Taxes: €100.00<br>
-                Total VAT: €20.00<br>
-                Total After Taxes: €120.00</p>
-        </div>
-
-        <div class="mt-8">
-            <h2 class="font-bold ml-5">Terms and Conditions:</h2>
-            <p class="ml-10 font-secondary">Payment Methods: Credit Card, PayPal, Bank Transfer <br>
-                Delivery Time: 5-7 business days <br>
-                Valid for 30 days from the date of issue</p>
-        </div>
-
-        <div class="mt-8">
-            <h2 class="font-bold ml-5">Action:</h2>
-            <p class="ml-10 font-secondary">Accept Quotation<br>
-                Print Quotation<br>
-                Proceed to Checkout</p>
-        </div>
-
-        <div class="flex flex-row justify-around items-center">
-            <input class="py-2 px-8 mt-5 bg-violet-500 rounded-xl text-white cursor-pointer" onclick="window.print()" type="button" value="Print">
-            <input class="py-2 px-5 mt-5 bg-violet-500 rounded-xl text-white cursor-pointer" type="button" value="Checkout">
+      </div>
+      
+  
+      <div id="modal" class="fixed hidden inset-0 z-50 overflow-auto p-5 flex justify-center items-center bg-black bg-opacity-50">
+        <div class="rounded-md w-full max-w-[900px] p-6 bg-white">
+            <span class="flex justify-end cursor-pointer text-red-500 font-bold" id="modalCloseBtn">X</span>
+            
+            <div class="pl-4 flex flex-col sm:flex-row justify-between mb-8">
+                <div>
+                    <p class="text-base sm:text-lg">Devis (Quotation) No: 12345 <br>
+                        Date: 11 November 2024 <br>
+                        Validity: 30 days</p>
+                </div>
+                
+                <div class="mt-4 sm:mt-0">
+                    <p class="text-base sm:text-lg">Client Information: <br>
+                        Name: John Doe <br>
+                        Email: john.doe@email.com <br>
+                        Phone: +123 456 7890 <br>
+                        Address: 1234 Elm Street, Suite 100, Cityville, State, 12345 <br>
+                    </p>
+                </div>
+            </div>
+    
+            <!-- Responsive Table Wrapper -->
+            <div class="overflow-x-auto">
+                <table id="table" class="w-full border-collapse table-auto">
+                    <thead>
+                        <tr class="border-2">
+                            <th class="border-2 px-4 py-2 text-left">Product/Service</th>
+                            <th class="border-2 px-4 py-2 text-left">Quantity</th>
+                            <th class="border-2 px-4 py-2 text-left">Unit Price</th>
+                            <th class="border-2 px-4 py-2 text-left">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Add rows dynamically here -->
+                        <tr class="border-t">
+                            <td class="px-4 py-2">Example Product</td>
+                            <td class="px-4 py-2">2</td>
+                            <td class="px-4 py-2">€50.00</td>
+                            <td class="px-4 py-2">€100.00</td>
+                        </tr>
+                        <!-- More rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+    
+            <ul id="Total-tax" class="mt-8">
+            </ul>
+    
+            <div class="mt-8">
+                <h2 class="font-bold">Terms and Conditions:</h2>
+                <p>Payment Methods: Credit Card, PayPal, Bank Transfer <br>
+                    Delivery Time: 5-7 business days <br>
+                    Valid for 30 days from the date of issue</p>
+            </div>
+    
+            <div class="mt-8">
+                <h2 class="font-bold">Action:</h2>
+                <p>Accept Quotation<br>
+                    Print Quotation<br>
+                    Proceed to Checkout</p>
+            </div>
+    
+            <div class="flex flex-wrap justify-around items-center mt-6 gap-4">
+                <input class="py-2 px-6 bg-violet-500 rounded-xl text-white cursor-pointer transition-colors duration-300 hover:bg-violet-600" onclick="window.print()" type="button" value="Print">
+                <input class="py-2 px-6 bg-violet-500 rounded-xl text-white cursor-pointer transition-colors duration-300 hover:bg-violet-600" type="button" value="Checkout">
+            </div>
         </div>
     </div>
-</div>
+
     <!-- footer -->
     <footer>
         <div class="mt-24 bg-[#EEEFFB] grid grid-cols-1 md:grid-cols-4 px-9 py-16 gap-9 justify-items-center pl-24">

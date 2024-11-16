@@ -24,18 +24,15 @@
 <body class="font-primary">
     <!-- Header with Navigation -->
     <header class="">
-        <div class="sm:flex sm:flex-col sm:justify-center sm:items-center md:flex-row md:justify-between md:items-center bg-violet-500 px-4 md:py-2 md:px-24">
-            <!-- Email Section -->
-            <div class="flex items-center gap-4 text-white sm:text-center">
+        <div class="flex justify-between items-center bg-violet-500 px-4 md:py-2 md:px-24">
+            <div class="flex items-center gap-4 text-white">
                 <i class="fa-regular fa-envelope text-2xl"></i>
                 <p class="text-lg md:text-base">NexioAR@gmail.com</p>
-            </div>
-        
-            <!-- Phone Section -->
-            <div class="flex items-center gap-4 text-white sm:text-center">
+            </div>       
+            <div class="flex items-center gap-4 text-white">
                 <i class="fa-solid fa-phone text-lg"></i>
                 <p class="text-sm md:text-base">(12345)67890</p>
-            </div>
+            </div>  
         </div>
         
         
@@ -62,7 +59,7 @@
         </nav>
 
         <!-- mobile menu  -->
-        <div id="mobile-menu" class="md:hidden bg-[#8b5cf6ad] text-white p-4 h-screen flex justify-center hidden items-center absolute w-full">
+        <div id="mobile-menu" class="md:hidden bg-[#8b5cf6ad] z-50 text-white p-4 h-screen flex justify-center hidden items-center absolute w-full">
             <ul class="flex flex-col gap-8 text-2xl text-center ">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="./pages/store.html">Store</a></li>
@@ -97,69 +94,82 @@
         </div>
     </header>
 
-    <div id="modal" class="fixed hidden inset-0 overflow-scroll overflow-x-hidden p-10 flex justify-center items-center bg-black bg-opacity-50">
-        <div class=" mt-24 rounded-md w-[900px] p-5 bg-white">
-            <span class="flex justify-end cursor-pointer text-red-500 font-bold"  id="modalCloseBtn">X</span>
-            <div class="pl-4 flex items-center justify-between mb-8">
-    
-                <p>Devis (Quotation) No: 12345 <br>
-                    Date: 11 November 2024 <br>
-                    Validity: 30 days</p>
-                
-                <p>Client Information : <br>
-                    Name: John Doe <br>
-                    Email: john.doe@email.com <br>
-                    Phone: +123 456 7890 <br>
-                    Address: 1234 Elm Street, Suite 100, Cityville, State, 12345 <br>
-                    
-                </p>
-            </div>
-            <div>
-                <table id="table">
+    <div id="modal" class="fixed hidden inset-0 z-50 overflow-auto p-5 flex justify-center items-center bg-black bg-opacity-50">
+        <div class="rounded-md w-full max-w-[900px] p-6 bg-white">
+            <span class="flex justify-end cursor-pointer text-red-500 font-bold" id="modalCloseBtn">X</span>
             
-                <tr class="border-2">
-                    <th class="border-2 px-16">Product/Service</th>
-                    <th class="border-2 px-16">Quantity</th> 
-                    <th class="border-2 px-16">Unit Price</th>
-                    <th class="border-2 px-16">Subtotal</th>
-                </tr>
+            <div class="pl-4 flex flex-col sm:flex-row justify-between mb-8">
+                <div>
+                    <p class="text-base sm:text-lg">Devis (Quotation) No: 12345 <br>
+                        Date: 11 November 2024 <br>
+                        Validity: 30 days</p>
+                </div>
+                
+                <div class="mt-4 sm:mt-0">
+                    <p class="text-base sm:text-lg">Client Information: <br>
+                        Name: John Doe <br>
+                        Email: john.doe@email.com <br>
+                        Phone: +123 456 7890 <br>
+                        Address: 1234 Elm Street, Suite 100, Cityville, State, 12345 <br>
+                    </p>
+                </div>
+            </div>
+    
+            <!-- Responsive Table Wrapper -->
+            <div class="overflow-x-auto">
+                <table id="table" class="w-full border-collapse table-auto">
+                    <thead>
+                        <tr class="border-2">
+                            <th class="border-2 px-4 py-2 text-left">Product/Service</th>
+                            <th class="border-2 px-4 py-2 text-left">Quantity</th>
+                            <th class="border-2 px-4 py-2 text-left">Unit Price</th>
+                            <th class="border-2 px-4 py-2 text-left">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Add rows dynamically here -->
+                        <tr class="border-t">
+                            <td class="px-4 py-2">Example Product</td>
+                            <td class="px-4 py-2">2</td>
+                            <td class="px-4 py-2">€50.00</td>
+                            <td class="px-4 py-2">€100.00</td>
+                        </tr>
+                        <!-- More rows as needed -->
+                    </tbody>
                 </table>
             </div>
-            
-            <div class="mt-8">
-                <h2 class="font-bold ml-5">Total Amount, TAX:</h2>
-                <p class="ml-10 font-secondary">Total Before Taxes: €100.00<br>
-                    Total VAT: €20.00<br>
-                    Total After Taxes: €120.00</p>
-            </div>
+    
+            <ul id="Total-tax" class="mt-8">
+            </ul>
     
             <div class="mt-8">
-                <h2 class="font-bold ml-5">Terms and Conditions:</h2>
-                <p class="ml-10 font-secondary">Payment Methods: Credit Card, PayPal, Bank Transfer <br>
+                <h2 class="font-bold">Terms and Conditions:</h2>
+                <p>Payment Methods: Credit Card, PayPal, Bank Transfer <br>
                     Delivery Time: 5-7 business days <br>
                     Valid for 30 days from the date of issue</p>
             </div>
     
             <div class="mt-8">
-                <h2 class="font-bold ml-5">Action:</h2>
-                <p class="ml-10 font-secondary">Accept Quotation<br>
+                <h2 class="font-bold">Action:</h2>
+                <p>Accept Quotation<br>
                     Print Quotation<br>
                     Proceed to Checkout</p>
             </div>
     
-            <div class="flex flex-row justify-around items-center">
-                <input class="py-2 px-8 mt-5 bg-violet-500 rounded-xl text-white cursor-pointer" onclick="window.print()" type="button" value="Print">
-                <input class="py-2 px-5 mt-5 bg-violet-500 rounded-xl text-white cursor-pointer" type="button" value="Checkout">
+            <div class="flex flex-wrap justify-around items-center mt-6 gap-4">
+                <input class="py-2 px-6 bg-violet-500 rounded-xl text-white cursor-pointer transition-colors duration-300 hover:bg-violet-600" onclick="window.print()" type="button" value="Print">
+                <input class="py-2 px-6 bg-violet-500 rounded-xl text-white cursor-pointer transition-colors duration-300 hover:bg-violet-600" type="button" value="Checkout">
             </div>
         </div>
     </div>
+    
 
     <!-- Debut de Mon Code  -->
   <!-- Section Header -->
 <!-- remplacer le premier section avec ca  -->
-<section class="relative overflow-hidden bg-[#EEEFFB]">
+<section class="relative z-2 overflow-hidden bg-[#EEEFFB]">
     <div id="slider-conatiner" class="flex w-full ">
-     <div class="slider w-screen flex flex-col min-w-full md:flex-row justify-center  h-auto min-w-full md:h-[80vh] mb-4 p-4 md:gap-[250px] min-w-full">
+     <div class="slider w-screen  flex flex-col min-w-full md:flex-row justify-center  h-auto min-w-full md:h-[80vh] mb-4 p-4 md:gap-[250px] min-w-full">
               <div class="mt-8 md:mt-[150px] w-full md:w-80 flex flex-col gap-4  ">
                   <!-- Texte du header -->
                   <div>
@@ -168,8 +178,8 @@
                   <p class="text-[#8A8FB9] font-Loti text-sm md:text-base">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.
                   </p>
-                  <div class="flex justify-center md:justify-start">
-                      <button id="shopNowButton" class="p-2 bg-[#FB2E86] text-white">Shop Now</button>
+                  <div class="flex justify-center mt-4 md:justify-start">
+                      <a id="shopNowButton"  href="pages/store.html" class="py-2 px-4 bg-[#FB2E86] text-white">Shop Now</a>
                   </div>
                   </div>
               </div>
@@ -197,24 +207,23 @@
       </div>
   </div>   
     </div>
-  </section>
+    </section>
 
 <!-- section categure -->
 
-<section class="w-full flex justify-center items-center p-16">
-    <div class="w-3/4">
+<section>
     <div class="flex justify-center mt-6 mb-6">
         <!-- <h1 class="text-[#1A0B5B] font-josefin font-semibold text-xl md:text-2xl">Our categories</h1> -->
         <h2 class="text-center mb-16 font-bold text-4xl text-[#151875]">Our categories</h2>
     </div>
-    <div class="flex flex-col md:flex-row gap-4 md:gap-[10px] mx-4">
-        <div class="hidden md:block w-full md:w-[714px] h-[684px]">
+    <div class="flex flex-col justify-center  md:flex-row gap-4 md:gap-[10px] mx-4">
+        <div class="hidden md:block w-full md:w-[514px] h-[584px]">
             <img src="img/home/grpImage.png" alt="grpImage" class="w-full h-full object-cover">
         </div>
         <div class="w-full md:w-[714px] h-full bg-[#8b5f6ad] p-4">
             <div class="flex items-center gap-4">
                 <img src="img/home/iconHome.png" alt="icon" class="w-6 md:w-8">
-                <h5 class="text-[#151875] font-Loti text-lg md:text-xl">The Best Collections</h5>
+                <h5 class="text-[#151875] font-Loti text-lg  md:text-xl ">The Best Collections</h5>
             </div>
             <p class="text-[#1A0B5B] font-josefin text-sm md:text-base mt-4">
                 It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable<br>
@@ -240,7 +249,6 @@
             </div>
         </div>
     </div>
-</div>
 </section>
 
 
@@ -355,15 +363,7 @@
 </div>
   </section>
 
-
-
-
-
-<!-- Fin de mon code -->
-
-
-
-<div style="z-index: 1000;" id="modal" class="fixed hidden inset-0 z-10 overflow-scroll overflow-x-hidden p-10 flex justify-center items-center bg-black bg-opacity-50">
+<div  id="modal" class="fixed hidden inset-0 z-50 overflow-scroll overflow-x-hidden p-10 flex justify-center items-center bg-black bg-opacity-50">
     <div class=" mt-24 rounded-md w-[900px] p-5 bg-white">
         <span class="flex justify-end cursor-pointer text-red-500 font-bold"  id="modalCloseBtn">X</span>
         <div class="pl-4 flex items-center justify-between mb-8">

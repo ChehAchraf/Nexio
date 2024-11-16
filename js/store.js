@@ -140,18 +140,18 @@ function show_products() {
                     paginate_item.forEach(item => {
                         product_container.innerHTML += `
                             <div>
-                                <img class="w-full h-50" src="${item.imageUrl}" alt="${item.marque}">
-                                <div class="flex justify-between items-center flex-wrap w-full space-y-3">
-                                    <p class="text-2xl text-[#1A0B5B] w-1/2 ">${item.marque}</p>
-                                    <p class="text-2xl text-[#1A0B5B] w-1/2 text-right">${item.price}.00$</p>
-                                    <div class="flex justify-between space-x-2 w-full">
-                                        <a id='cut-btn' href="#" onclick="customizeItem(${item.id})" class="md:w-1/2 text-[#1A0B5B] text-lg underline pl-4">Customize</a>
-                                    <button id="addToCartt" onclick="addToCart(${item.id})" type="button" class="md:w-1/3 text-xs md:text-lg p-2 d mr-8 bg-[#1A0B5B] text-white hover:bg-[#150a42] focus:outline-none focus:ring-2 focus:ring-[#FB2E86] focus:ring-opacity-50">
-                                        Add to cart
-                                    </button>
-                                    </div>
-                                </div>
-                            </div>
+        <img class="w-full h-50 object-cover" src="${item.imageUrl}" alt="${item.marque}">
+        <div class="flex justify-between items-center flex-wrap w-full space-y-3">
+            <p class="text-2xl text-[#1A0B5B] w-1/2">${item.marque}</p>
+            <p class="text-2xl text-[#1A0B5B] w-1/2 text-right">${item.price}.00$</p>
+            <div class="flex justify-between space-x-2 w-full">
+                <a id="cut-btn" href="#" onclick="customizeItem(${item.id})" class="sm:text-xs md:w-1/2 text-[#1A0B5B] text-lg underline pl-4">Customize</a>
+                <button id="addToCartt" onclick="addToCart(${item.id})" type="button" class="md:w-1/3 text-xs md:text-lg p-2 mr-8 bg-[#1A0B5B] text-white hover:bg-[#150a42] focus:outline-none focus:ring-2 focus:ring-[#FB2E86] focus:ring-opacity-50">
+                    Add to cart
+                </button>
+            </div>
+        </div>
+    </div>
                         `;
                     });         
                 }
@@ -287,7 +287,63 @@ function addToCart(pro){
     
         cartmenu.style.transform = "translateX(0)"
     
-       
-
 
 }
+function showCheckout() {
+    closeCard();
+    const panier = JSON.parse(localStorage.getItem("cart")) || [];
+    
+    document.getElementById('table').innerHTML = `
+        <tr class="border-2">
+            <th class="border-2 px-16">Product/Service</th>
+            <th class="border-2 px-16">Quantity</th>
+            <th class="border-2 px-16">Unit Price</th>
+            <th class="border-2 px-16">Subtotal</th>
+        </tr>
+    `;
+    
+    let total = 0;
+    
+    panier.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.className = "border-2";
+        
+    
+        const subtotal = item.price * item.Bquantity;
+        total += subtotal;
+        
+        tr.innerHTML = `
+            <th class="border-2 px-16">${item.name}</th>
+            <th class="border-2">${item.Bquantity}</th>
+            <th class="border-2">${item.price}.00$</th>
+            <th class="border-2">${subtotal}.00$</th>
+        `;
+        
+        document.getElementById('table').appendChild(tr);
+    });
+  
+    
+    const taxRate = 0.2;
+    const taxAmount = total * taxRate;
+    const totalAfterTaxes = total + taxAmount;
+  
+  
+    const taxTotalList = document.createElement('div');
+    taxTotalList.innerHTML = `
+        <li class="font-bold ml-5">Total Amount, TAX:</li>
+        <li class="ml-10 font-secondary">Total Before Taxes: ${total}.00$</li>
+        <li class="ml-10 font-secondary">TAX: ${taxAmount.toFixed(2)}$</li>
+        <li class="ml-10 font-secondary">Total After Taxes: ${totalAfterTaxes.toFixed(2)}$</li>
+    `;
+    
+    document.getElementById("Total-tax").innerHTML = '';
+    document.getElementById("Total-tax").appendChild(taxTotalList);
+    
+  
+    modal.style.display = "flex";
+    cartmenu.classList.add('translate-x-full');
+  }
+  
+  modalCloseBtn.addEventListener("click", function() {
+    modal.style.display = "none";
+  });

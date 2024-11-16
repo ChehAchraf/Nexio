@@ -60,7 +60,7 @@
         <!-- mobile menu  -->
         <div id="mobile-menu" class="md:hidden bg-[#8b5cf6ad] text-white p-4 h-screen flex justify-center hidden items-center absolute w-full">
             <ul class="flex flex-col gap-8 text-2xl text-center ">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="store.html">Store</a></li>
                 <li><a hhref="about-us.html">About us</a></li>
                 <li><a href="contact-us.html">Contact</a></li>
@@ -102,11 +102,11 @@
     </section>
     <!-- start the stor section  -->
      <section class="px-24 py-24">
-        <div class="flex justify-between">
-            <p class="text-lg text-[#1A0B5B]">All the Best Products Just in one click</p>
-            <div class="flex gap-2 items-center">
-                <label for="sort-by-categorie">Sort by : </label>
-                <select class="text-[#8A8FB9]" name="categories" id="sort-by-categorie">
+        <div class="flex flex-col sm:flex-row justify-between items-center sm:items-start sm:gap-4">
+            <p class="text-lg text-[#1A0B5B] text-center sm:text-left">All the Best Products Just in one click</p>
+            <div class="flex flex-col sm:flex-row gap-2 items-center sm:justify-start">
+                <label for="sort-by-categorie" class="text-sm sm:text-base">Sort by : </label>
+                <select class="text-[#8A8FB9] text-sm sm:text-base" name="categories" id="sort-by-categorie">
                     <option value="" selected>All Categories</option>
                     <option value="laptop">Laptops</option>
                     <option value="PC">Computers</option>
@@ -117,66 +117,83 @@
                 </select>
             </div>
         </div>
-        <div id="product" class="py-24 grid grid-cols-1 gap-16 md:grid-cols-3 ">
+        
+        <div id="product" class="py-24 grid grid-cols-1 gap-16 md:grid-cols-3 lg:grid-cols-4">
             <!-- product -->
             
         </div>
         <div class="flex justify-center">
                 <div id="pagination-buttons" class="space-x-4 " >
 
-                </div>
+        </div>
         </div>
      </section>
      <!-- modal -->
-     <div id="modal" class="fixed hidden inset-0 overflow-scroll overflow-x-hidden p-10 flex justify-center items-center bg-black bg-opacity-50">
-        <div class=" mt-24 rounded-md w-[900px] p-5 bg-white">
-            <span class="flex justify-end cursor-pointer text-red-500 font-bold"  id="modalCloseBtn">X</span>
-            <div class="pl-4 flex items-center justify-between mb-8">
-    
-                <p>Devis (Quotation) No: 12345 <br>
-                    Date: 11 November 2024 <br>
-                    Validity: 30 days</p>
-                
-                <p>Client Information : <br>
-                    Name: John Doe <br>
-                    Email: john.doe@email.com <br>
-                    Phone: +123 456 7890 <br>
-                    Address: 1234 Elm Street, Suite 100, Cityville, State, 12345 <br>
-                    
-                </p>
-            </div>
-            <div>
-                <table id="table">
+     <div id="modal" class="fixed hidden inset-0 z-50 overflow-auto p-5 flex justify-center items-center bg-black bg-opacity-50">
+        <div class="rounded-md w-full max-w-[900px] p-6 bg-white">
+            <span class="flex justify-end cursor-pointer text-red-500 font-bold" id="modalCloseBtn">X</span>
             
-                <tr class="border-2">
-                    <th class="border-2 px-16">Product/Service</th>
-                    <th class="border-2 px-16">Quantity</th> 
-                    <th class="border-2 px-16">Unit Price</th>
-                    <th class="border-2 px-16">Subtotal</th>
-                </tr>
+            <div class="pl-4 flex flex-col sm:flex-row justify-between mb-8">
+                <div>
+                    <p class="text-base sm:text-lg">Devis (Quotation) No: 12345 <br>
+                        Date: 11 November 2024 <br>
+                        Validity: 30 days</p>
+                </div>
+                
+                <div class="mt-4 sm:mt-0">
+                    <p class="text-base sm:text-lg">Client Information: <br>
+                        Name: John Doe <br>
+                        Email: john.doe@email.com <br>
+                        Phone: +123 456 7890 <br>
+                        Address: 1234 Elm Street, Suite 100, Cityville, State, 12345 <br>
+                    </p>
+                </div>
+            </div>
+    
+            <!-- Responsive Table Wrapper -->
+            <div class="overflow-x-auto">
+                <table id="table" class="w-full border-collapse table-auto">
+                    <thead>
+                        <tr class="border-2">
+                            <th class="border-2 px-4 py-2 text-left">Product/Service</th>
+                            <th class="border-2 px-4 py-2 text-left">Quantity</th>
+                            <th class="border-2 px-4 py-2 text-left">Unit Price</th>
+                            <th class="border-2 px-4 py-2 text-left">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Add rows dynamically here -->
+                        <tr class="border-t">
+                            <td class="px-4 py-2">Example Product</td>
+                            <td class="px-4 py-2">2</td>
+                            <td class="px-4 py-2">€50.00</td>
+                            <td class="px-4 py-2">€100.00</td>
+                        </tr>
+                        <!-- More rows as needed -->
+                    </tbody>
                 </table>
             </div>
-            
+    
             <ul id="Total-tax" class="mt-8">
             </ul>
     
             <div class="mt-8">
-                <h2 class="font-bold ml-5">Terms and Conditions:</h2>
-                <p class="ml-10 font-secondary">Payment Methods: Credit Card, PayPal, Bank Transfer <br>
+                <h2 class="font-bold">Terms and Conditions:</h2>
+                <p>Payment Methods: Credit Card, PayPal, Bank Transfer <br>
                     Delivery Time: 5-7 business days <br>
                     Valid for 30 days from the date of issue</p>
             </div>
     
             <div class="mt-8">
-                <h2 class="font-bold ml-5">Action:</h2>
-                <p class="ml-10 font-secondary">Accept Quotation<br>
+                <h2 class="font-bold">Action:</h2>
+                <p>Accept Quotation<br>
                     Print Quotation<br>
                     Proceed to Checkout</p>
             </div>
     
-            <div class="flex flex-row justify-around items-center">
-                <input class="py-2 px-8 mt-5 bg-violet-500 rounded-xl text-white cursor-pointer" onclick="window.print()" type="button" value="Print">
-                <input class="py-2 px-5 mt-5 bg-violet-500 rounded-xl text-white cursor-pointer" type="button" value="Checkout">
+            <div class="flex flex-wrap justify-around items-center mt-6 gap-4">
+                <input class="py-2 px-6 bg-violet-500 rounded-xl text-white cursor-pointer transition-colors duration-300 hover:bg-violet-600" onclick="window.print()" type="button" value="Print">
+                <input class="py-2 px-6 bg-violet-500 rounded-xl text-white cursor-pointer transition-colors duration-300 hover:bg-violet-600" type="button" value="Checkout">
             </div>
         </div>
     </div>

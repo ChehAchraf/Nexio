@@ -117,3 +117,61 @@ function closeCard(){
     cartmenu.style.transform = "translateX(100%)"
 
 }
+function showCheckout() {
+    closeCard();
+    const panier = JSON.parse(localStorage.getItem("cart")) || [];
+    
+    document.getElementById('table').innerHTML = `
+        <tr class="border-2">
+            <th class="border-2 px-16">Product/Service</th>
+            <th class="border-2 px-16">Quantity</th>
+            <th class="border-2 px-16">Unit Price</th>
+            <th class="border-2 px-16">Subtotal</th>
+        </tr>
+    `;
+    
+    let total = 0;
+    
+    panier.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.className = "border-2";
+        
+    
+        const subtotal = item.price * item.Bquantity;
+        total += subtotal;
+        
+        tr.innerHTML = `
+            <th class="border-2 px-16">${item.name}</th>
+            <th class="border-2">${item.Bquantity}</th>
+            <th class="border-2">${item.price}.00$</th>
+            <th class="border-2">${subtotal}.00$</th>
+        `;
+        
+        document.getElementById('table').appendChild(tr);
+    });
+  
+    
+    const taxRate = 0.2;
+    const taxAmount = total * taxRate;
+    const totalAfterTaxes = total + taxAmount;
+  
+  
+    const taxTotalList = document.createElement('div');
+    taxTotalList.innerHTML = `
+        <li class="font-bold ml-5">Total Amount, TAX:</li>
+        <li class="ml-10 font-secondary">Total Before Taxes: ${total}.00$</li>
+        <li class="ml-10 font-secondary">TAX: ${taxAmount.toFixed(2)}$</li>
+        <li class="ml-10 font-secondary">Total After Taxes: ${totalAfterTaxes.toFixed(2)}$</li>
+    `;
+    
+    document.getElementById("Total-tax").innerHTML = '';
+    document.getElementById("Total-tax").appendChild(taxTotalList);
+    
+  
+    modal.style.display = "flex";
+    cartmenu.classList.add('translate-x-full');
+  }
+  
+  modalCloseBtn.addEventListener("click", function() {
+    modal.style.display = "none";
+  });

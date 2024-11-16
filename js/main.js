@@ -4,14 +4,6 @@ const carttoggle = document.getElementById('cart-toggle');
 
 const cartclose = document.getElementById('cart-close');
 
-
-
-
-
-
-
-
-
 menutoggle.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
 });
