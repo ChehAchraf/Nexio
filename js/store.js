@@ -140,18 +140,18 @@ function show_products() {
                     paginate_item.forEach(item => {
                         product_container.innerHTML += `
                             <div>
-        <img class="w-full h-50 object-cover" src="${item.imageUrl}" alt="${item.marque}">
-        <div class="flex justify-between items-center flex-wrap w-full space-y-3">
-            <p class="text-2xl text-[#1A0B5B] w-1/2">${item.marque}</p>
-            <p class="text-2xl text-[#1A0B5B] w-1/2 text-right">${item.price}.00$</p>
-            <div class="flex justify-between space-x-2 w-full">
-                <a id="cut-btn" href="#" onclick="customizeItem(${item.id})" class="text-xs mt-2 md:w-1/2   text-[#1A0B5B] md:text-lg underline pl-4">Customize</a>
-                <button id="addToCartt" onclick="addToCart(${item.id})" type="button" class="md:w-1/2 py-1 px-4 text-xs md:text-base md:py-1 md:px-2 mr-8 bg-[#1A0B5B] text-white hover:bg-[#150a42] focus:outline-none focus:ring-2 focus:ring-[#FB2E86] focus:ring-opacity-50">
-                    Add to cart
-                </button>
-            </div>
-        </div>
-    </div>
+                                <img class="w-full h-50 object-cover" src="${item.imageUrl}" alt="${item.marque}">
+                                <div class="flex justify-between items-center flex-wrap w-full space-y-3">
+                                    <p class="text-2xl text-[#1A0B5B] w-1/2">${item.marque}</p>
+                                    <p class="text-2xl text-[#1A0B5B] w-1/2 text-right">${item.price}.00$</p>
+                                    <div class="flex justify-between space-x-2 w-full">
+                                        <a id="cut-btn" href="#" onclick="customizeItem(${item.id})" class="text-xs mt-2 md:w-1/2   text-[#1A0B5B] md:text-lg underline pl-4">Customize</a>
+                                        <button id="addToCartt" onclick="addToCart(${item.id})" type="button" class="md:w-1/2 py-1 px-4 text-xs md:text-base md:py-1 md:px-2 mr-8 bg-[#1A0B5B] text-white hover:bg-[#150a42] focus:outline-none focus:ring-2 focus:ring-[#FB2E86] focus:ring-opacity-50">
+                                            Add to cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         `;
                     });         
                 }
