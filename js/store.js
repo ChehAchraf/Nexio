@@ -145,8 +145,8 @@ function show_products() {
             <p class="text-2xl text-[#1A0B5B] w-1/2">${item.marque}</p>
             <p class="text-2xl text-[#1A0B5B] w-1/2 text-right">${item.price}.00$</p>
             <div class="flex justify-between space-x-2 w-full">
-                <a id="cut-btn" href="#" onclick="customizeItem(${item.id})" class="sm:text-xs md:w-1/2 text-[#1A0B5B] text-lg underline pl-4">Customize</a>
-                <button id="addToCartt" onclick="addToCart(${item.id})" type="button" class="md:w-1/3 text-xs md:text-lg p-2 mr-8 bg-[#1A0B5B] text-white hover:bg-[#150a42] focus:outline-none focus:ring-2 focus:ring-[#FB2E86] focus:ring-opacity-50">
+                <a id="cut-btn" href="#" onclick="customizeItem(${item.id})" class="text-xs mt-2 md:w-1/2   text-[#1A0B5B] md:text-lg underline pl-4">Customize</a>
+                <button id="addToCartt" onclick="addToCart(${item.id})" type="button" class="md:w-1/2 py-1 px-4 text-xs md:text-base md:py-1 md:px-2 mr-8 bg-[#1A0B5B] text-white hover:bg-[#150a42] focus:outline-none focus:ring-2 focus:ring-[#FB2E86] focus:ring-opacity-50">
                     Add to cart
                 </button>
             </div>
