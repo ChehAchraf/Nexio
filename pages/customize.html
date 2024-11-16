@@ -220,70 +220,73 @@
 
 
         </section>
- <div id="modal" class="fixed hidden inset-0 z-50 overflow-auto p-5 flex justify-center items-center bg-black bg-opacity-50">
-    <div class="rounded-md w-full max-w-[900px] p-6 bg-white">
-        <span class="flex justify-end cursor-pointer text-red-500 font-bold" id="modalCloseBtn">X</span>
+        <div id="modal" class="fixed hidden inset-0 z-50 overflow-auto p-5 flex justify-center items-center bg-black bg-opacity-50">
+            <div class="rounded-md max-w-[80%] max-h-[80vh] overflow-y-scroll w-full md:max-w-[900px] p-6 bg-white">
+                <span class="flex justify-end cursor-pointer text-red-500 font-bold" id="modalCloseBtn">X</span>
+                
+                <div class="pl-4 flex flex-col sm:flex-row justify-between mb-8">
+                    <div>
+                        <p class="text-base sm:text-lg">Devis (Quotation) No: 12345 <br>
+                            Date: 11 November 2024 <br>
+                            Validity: 30 days</p>
+                    </div>
+                    
+                    <div class="mt-4 sm:mt-0">
+                        <p class="text-base sm:text-lg">Client Information: <br>
+                            Name: John Doe <br>
+                            Email: john.doe@email.com <br>
+                            Phone: +123 456 7890 <br>
+                            Address: 1234 Elm Street, Suite 100, Cityville, State, 12345 <br>
+                        </p>
+                    </div>
+                </div>
         
-        <div class="pl-4 flex flex-col sm:flex-row justify-between mb-8">
-            <div>
-                <p class="text-base sm:text-lg">Devis (Quotation) No: 12345 <br>
-                    Date: 11 November 2024 <br>
-                    Validity: 30 days</p>
+                
+                <div class="overflow-x-auto">
+                    <table id="table" class="w-full border-collapse table-auto">
+                        <thead>
+                            <tr class="border-2">
+                                <th class="border-2 px-4 py-2 text-left">Product/Service</th>
+                                <th class="border-2 px-4 py-2 text-left">Quantity</th>
+                                <th class="border-2 px-4 py-2 text-left">Unit Price</th>
+                                <th class="border-2 px-4 py-2 text-left">Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr class="border-t">
+                                <td class="px-4 py-2">Example Product</td>
+                                <td class="px-4 py-2">2</td>
+                                <td class="px-4 py-2">€50.00</td>
+                                <td class="px-4 py-2">€100.00</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+        
+                <ul id="Total-tax" class="mt-8">
+                </ul>
+        
+                <div class="mt-8">
+                    <h2 class="font-bold">Terms and Conditions:</h2>
+                    <p>Payment Methods: Credit Card, PayPal, Bank Transfer <br>
+                        Delivery Time: 5-7 business days <br>
+                        Valid for 30 days from the date of issue</p>
+                </div>
+        
+                <div class="mt-8">
+                    <h2 class="font-bold">Action:</h2>
+                    <p>Accept Quotation<br>
+                        Print Quotation<br>
+                        Proceed to Checkout</p>
+                </div>
+        
+                <div class="flex flex-wrap justify-around items-center mt-6 gap-4">
+                    <input class="py-2 px-6 bg-violet-500 rounded-xl text-white cursor-pointer transition-colors duration-300 hover:bg-violet-600" onclick="window.print()" type="button" value="Print">
+                </div>
             </div>
-            
-            <div class="mt-4 sm:mt-0">
-                <p class="text-base sm:text-lg">Client Information: <br>
-                    Name: John Doe <br>
-                    Email: john.doe@email.com <br>
-                    Phone: +123 456 7890 <br>
-                    Address: 1234 Elm Street, Suite 100, Cityville, State, 12345 <br>
-                </p>
-            </div>
         </div>
-        <div class="overflow-x-auto">
-            <table id="table" class="w-full border-collapse table-auto">
-                <thead>
-                    <tr class="border-2">
-                        <th class="border-2 px-4 py-2 text-left">Product/Service</th>
-                        <th class="border-2 px-4 py-2 text-left">Quantity</th>
-                        <th class="border-2 px-4 py-2 text-left">Unit Price</th>
-                        <th class="border-2 px-4 py-2 text-left">Subtotal</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="border-t">
-                        <td class="px-4 py-2">Example Product</td>
-                        <td class="px-4 py-2">2</td>
-                        <td class="px-4 py-2">€50.00</td>
-                        <td class="px-4 py-2">€100.00</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <ul id="Total-tax" class="mt-8">
-        </ul>
-
-        <div class="mt-8">
-            <h2 class="font-bold">Terms and Conditions:</h2>
-            <p>Payment Methods: Credit Card, PayPal, Bank Transfer <br>
-                Delivery Time: 5-7 business days <br>
-                Valid for 30 days from the date of issue</p>
-        </div>
-
-        <div class="mt-8">
-            <h2 class="font-bold">Action:</h2>
-            <p>Accept Quotation<br>
-                Print Quotation<br>
-                Proceed to Checkout</p>
-        </div>
-
-        <div class="flex flex-wrap justify-around items-center mt-6 gap-4">
-            <input class="py-2 px-6 bg-violet-500 rounded-xl text-white cursor-pointer transition-colors duration-300 hover:bg-violet-600" onclick="window.print()" type="button" value="Print">
-            <input class="py-2 px-6 bg-violet-500 rounded-xl text-white cursor-pointer transition-colors duration-300 hover:bg-violet-600" type="button" value="Checkout">
-        </div>
-    </div>
-</div>
 
     <!-- footer -->
     <footer>

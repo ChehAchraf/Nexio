@@ -187,10 +187,9 @@ function show_products() {
 
 function showOnCart(cart){
     document.getElementById('item-list').innerHTML = ``
-   console.log("aa", cart)
    let total =0;
     cart.forEach(item => {
-        
+        console.log(item.imageUrl)
         const li = document.createElement('li')
         li.className = 'flex justify-between text-sm text-gray-600'
         li.innerHTML = `
@@ -249,45 +248,43 @@ function updateQuantity(id, element){
     localStorage.setItem("cart", JSON.stringify(carrt))
 
 }
-function addToCart(pro){
-    let product ;
+function addToCart(pro) {
+    let product;
     const data = JSON.parse(localStorage.getItem('data'));
-    console.log(data)
-    for(let i = 0 ; i < data.length ; i++){
-        if (data[i].id == pro){
-             product = data[i]
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].id == pro) {
+            product = data[i];
         }
     }
-    console.log(pro)
-    const carrt = JSON.parse(localStorage.getItem('cart') )|| [];
-   let quantity = 1;
+
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const quantity = 1;
     const it = {
         id: product.id,
         name: product.marque,
         price: product.price,
-        Bquantity: quantity
-    }
-    let found = false
-    let j
-   for(let i =0; i< carrt.length;i++){
-        if (carrt[i].id == it.id){
+        Bquantity: quantity,
+        img: product.imageUrl 
+    };
+
+    let found = false;
+    let j;
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].id == it.id) {
             found = true;
-            j=i
+            j = i;
         }
-   }
-   if(found){
-    carrt[j].Bquantity +=  1
-   } else{
-    carrt.push(it)
-   }
-    showOnCart(carrt)
+    }
+    if (found) {
+        cart[j].Bquantity += 1;
+    } else {
+        cart.push(it);
+    }
 
-    localStorage.setItem("cart", JSON.stringify(carrt))
+    showOnCart(cart);
+    localStorage.setItem("cart", JSON.stringify(cart));
 
-    
-        cartmenu.style.transform = "translateX(0)"
-    
-
+    cartmenu.style.transform = "translateX(0)";
 }
 function showCheckout() {
     closeCard();

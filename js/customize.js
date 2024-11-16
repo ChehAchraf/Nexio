@@ -665,7 +665,6 @@ showOnCart(carrt)
     
 })
 function showCheckout() {
-    closeCard();
     const panier = JSON.parse(localStorage.getItem("cart")) || [];
     
     document.getElementById('table').innerHTML = `
@@ -722,4 +721,3 @@ function showCheckout() {
   modalCloseBtn.addEventListener("click", function() {
     modal.style.display = "none";
   });
-

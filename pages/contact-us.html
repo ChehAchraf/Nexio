@@ -198,7 +198,7 @@
       
   
       <div id="modal" class="fixed hidden inset-0 z-50 overflow-auto p-5 flex justify-center items-center bg-black bg-opacity-50">
-        <div class="rounded-md w-full max-w-[900px] p-6 bg-white">
+        <div class="rounded-md max-w-[80%] max-h-[80vh] overflow-y-scroll w-full md:max-w-[900px] p-6 bg-white">
             <span class="flex justify-end cursor-pointer text-red-500 font-bold" id="modalCloseBtn">X</span>
             
             <div class="pl-4 flex flex-col sm:flex-row justify-between mb-8">
@@ -217,6 +217,8 @@
                     </p>
                 </div>
             </div>
+    
+            
             <div class="overflow-x-auto">
                 <table id="table" class="w-full border-collapse table-auto">
                     <thead>
@@ -228,35 +230,41 @@
                         </tr>
                     </thead>
                     <tbody>
+                        
                         <tr class="border-t">
                             <td class="px-4 py-2">Example Product</td>
                             <td class="px-4 py-2">2</td>
                             <td class="px-4 py-2">€50.00</td>
                             <td class="px-4 py-2">€100.00</td>
                         </tr>
+                        
                     </tbody>
                 </table>
             </div>
+    
             <ul id="Total-tax" class="mt-8">
             </ul>
+    
             <div class="mt-8">
                 <h2 class="font-bold">Terms and Conditions:</h2>
                 <p>Payment Methods: Credit Card, PayPal, Bank Transfer <br>
                     Delivery Time: 5-7 business days <br>
                     Valid for 30 days from the date of issue</p>
             </div>
+    
             <div class="mt-8">
                 <h2 class="font-bold">Action:</h2>
                 <p>Accept Quotation<br>
                     Print Quotation<br>
                     Proceed to Checkout</p>
             </div>
+    
             <div class="flex flex-wrap justify-around items-center mt-6 gap-4">
                 <input class="py-2 px-6 bg-violet-500 rounded-xl text-white cursor-pointer transition-colors duration-300 hover:bg-violet-600" onclick="window.print()" type="button" value="Print">
-                <input class="py-2 px-6 bg-violet-500 rounded-xl text-white cursor-pointer transition-colors duration-300 hover:bg-violet-600" type="button" value="Checkout">
             </div>
         </div>
     </div>
+
     <!-- footer -->
     <footer>
         <div class="bg-[#EEEFFB] grid grid-cols-1 md:grid-cols-4 px-9 py-16 gap-9 justify-items-center pl-24">
