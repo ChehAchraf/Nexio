@@ -21,6 +21,6 @@ A modern and responsive website designed for **Nexio**, a new electronics compan
 
 ## 📋 Installation Instructions
 ```bash
-git clone https://github.com/your-repo/nexio-website.git
-cd nexio-website
+git clone [https://github.com/ChehAchraf/Nexio.git]
+cd nexio
 
